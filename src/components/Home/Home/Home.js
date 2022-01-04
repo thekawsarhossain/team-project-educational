@@ -1,14 +1,9 @@
 import React from "react";
-import Footer from "../../Shared/Footer/Footer";
-import CourseSlider from "../CourseSlider/CourseSlider";
-import PopularCourse from "../PopularCourse/PopularCourse";
+import OnlineCourses from '../OnlineCourse/OnlineCourse';
 
 const Home = () => {
   return <div>
-    <h1>Home</h1>
-    <PopularCourse/>
-    <CourseSlider/>
-    <Footer/>
+    <OnlineCourses />
   </div>;
 };
 
