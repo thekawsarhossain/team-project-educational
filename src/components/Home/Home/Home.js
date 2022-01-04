@@ -7,6 +7,7 @@ const Home = () => {
    
     <PopularCourse/>
    <CourseSlider/>
+   
   </div>;
 };
 
