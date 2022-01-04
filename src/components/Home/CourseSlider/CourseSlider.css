@@ -1,0 +1,68 @@
+ .course-card{
+   margin: 100px 0px ;
+ }
+
+ button{
+   cursor: pointer;
+ }
+ .card-1{
+  background-image: url('../../../images/banner-bg-1.jpg');
+  height: 260px;
+  border-radius: 5px;
+ 
+}
+ .card-2{
+  background-image: url('../../../images/banner-bg-2.jpg');
+  height: 260px;
+  border-radius: 5px;
+}
+
+.card-content{
+  display: flex;
+  align-items: center;
+  padding: 0px 30px;
+  text-align: left;
+}
+
+.card-img{
+margin-top: 5%;
+position: relative;
+margin-left: -20px;
+width: 10%;
+}
+
+.card-2 .card-img{
+  margin-top: 2% ;
+  height: 250px;
+}
+
+.btn-1{
+  background: #FC4389;
+  border: 0;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 50px;
+}
+
+.btn-2{
+  background-color: #274bff;
+  border: 0;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .card-img{
+    display: none;
+  }
+  .card-info{
+    margin-top: 30px;
+    }
+.popularCourse-title h1{
+  font-size: 30px !important;
+}
+
+
+}
