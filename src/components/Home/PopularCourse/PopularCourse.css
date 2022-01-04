@@ -1,0 +1,64 @@
+
+.popularCourse-title{
+  position: relative;
+  text-align: start;
+}
+.popularCourse-title h1{
+  font-size: 40px;
+}
+.p-info p{
+  color: black;
+}
+.p-info p:hover{
+color: #2B4EFF;
+
+}
+.fa-arrow-right{
+  margin-left: 5px;
+}
+.items{
+  display: flex;
+  align-items: center;
+}
+.items-svg{
+ width: 40px;
+ height: 40px;
+ margin-left: 40px;
+
+}
+
+.items-info{
+  line-height: 8px;
+  margin-left: 25px;
+  text-align: start;
+}
+.items-info h3{
+  color:#2B4EFF ;
+}
+
+.item:hover .items-info h3{
+  color: aliceblue;
+}
+.item{
+  border: 2px solid #ebe9eb;;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+ 
+}
+.item:hover{
+  background: #2B4EFF;
+  color: white;
+  border: 2px solid #2B4EFF;
+  
+}
+.popularCourse-title span{
+  margin-left: 15px;
+}
+.popularCourse-title span img {
+  position: absolute;
+  left: 70px;
+  bottom: 20px;
+  z-index: -1;
+  width: 180px;
+}
