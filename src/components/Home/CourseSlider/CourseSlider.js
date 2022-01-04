@@ -54,5 +54,3 @@ const CourseSlider = () => {
 };
 
 export default CourseSlider;
-
-
