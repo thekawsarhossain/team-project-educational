@@ -1,0 +1,43 @@
+.footerBanner{
+  background-color: #274BFF;
+  border-radius: 5px;
+  margin-bottom: -120px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+/* background-color: #274BFF;
+height: 250px; */
+.FB-1 h1{
+  text-align: start;
+  padding-left: 50px;
+  color: white;
+  font-size: 45px;
+}
+
+.FB-2{
+right: 0;
+background-color: #fd8421;;
+height: 250px;
+width: 500px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+border-bottom-left-radius: 300px;
+}
+.FB-2 button{
+  margin: 100px 0px;
+  border: 0;
+  padding: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background-color: #fa8525;;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+
+}
+.FB-2 button:hover{
+  background-color: white;
+  color: black;
+}
