@@ -41,3 +41,8 @@ border-bottom-left-radius: 300px;
   background-color: white;
   color: black;
 }
+
+::selection{
+  background-color: #274BFF;
+  color: white;
+}
