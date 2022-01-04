@@ -11,7 +11,7 @@ const Footer = () => {
   <footer>
   <Container>
   <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2} columns={16}>
+      <Grid container spacing={2} columns={16} sx={{paddingTop:'150px' }}>
         <Grid item xs={12} md={4}>
           <div className="footer-item-1">
             <img src="https://www.devsnews.com/wp/educal/wp-content/themes/educal/assets/img/logo/logo.png" alt="" srcset="" />
