@@ -4,10 +4,8 @@ import PopularCourse from "../PopularCourse/PopularCourse";
 
 const Home = () => {
   return <div>
-   
     <PopularCourse/>
    <CourseSlider/>
-   
   </div>;
 };
 
