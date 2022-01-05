@@ -6,9 +6,11 @@ import OnlineCourse from "../OnlineCourse/OnlineCourse";
 import PopularCourse from "../PopularCourse/PopularCourse";
 import Pricing from "../Pricing/Pricing";
 import Footer from '../../Shared/Footer/Footer';
+import Banner from "../Banner/Banner";
 
 const Home = () => {
   return <Box>
+    <Banner/>
     <PopularCourse />
     <CourseSlider />
     <OnlineCourse />
