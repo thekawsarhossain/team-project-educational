@@ -1,18 +1,21 @@
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import React, { useEffect, useState } from "react";
+import { fetchEvents } from "../../../Redux/slices/eventSlice";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./Event.css";
 
 const Event = () => {
 
-  const [events, setEvents] = useState();
-  useEffect(() => {
-    fetch('/events.JSON')
-      .then(response => response.json())
-      .then(data => setEvents(data))
-  }, [])
+  //calling redux thunk to get data 
+  const dispatch = useDispatch();
 
-  console.log(events)
+  useEffect(() => {
+    dispatch(fetchEvents())
+  }, [dispatch])
+
+  const events = useSelector((state) => state.events.events);
+
 
   return <Container sx={{ py: 8 }}>
     {/* component title and description here  */}
