@@ -37,14 +37,21 @@ const AllCourses = () => {
                                     <Typography gutterBottom variant="h6" component="div" sx={{ color: '#0E1133', py: 1 }}>
                                         {course.title}
                                     </Typography>
-                                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                        <Avatar
-                                            alt="avatar"
-                                            src={course.instructorImg}
-                                        ></Avatar>
-                                        <Typography gutterBottom variant="body2" component="div" sx={{ color: '#0E1133', px: 2, py: 1 }}>
-                                            {course.instructorName}
-                                        </Typography>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                            <Avatar
+                                                alt="avatar"
+                                                src={course.instructorImg}
+                                            ></Avatar>
+                                            <Typography gutterBottom variant="body2" component="div" sx={{ color: '#0E1133', px: 2, py: 1 }}>
+                                                {course.instructorName}
+                                            </Typography>
+                                        </Box>
+                                        <Box>
+                                            <Button variant="outlined" size="small">
+                                                {course.courseName[0]}
+                                            </Button>
+                                        </Box>
                                     </Box>
                                     <Divider sx={{ my: 2 }} />
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
