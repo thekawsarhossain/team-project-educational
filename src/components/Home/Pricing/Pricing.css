@@ -1,0 +1,63 @@
+a{
+  text-decoration: none;
+}
+.price-button{
+  margin-top: 50px;
+}
+.price-button a{
+  padding:10px  12px;
+  border: 1px solid gainsboro;
+}
+.taka{
+  font-size: 45px;
+  font-weight: bold;
+}
+.p-card{
+  background-color: #F3F4F8;
+  margin:20px;
+  padding: 30px 50px;
+  text-align: start;
+  
+}
+
+.p-card li{
+  list-style: none;
+  padding: 5px;
+}
+
+.p-card button{
+  margin: 50px 0px;
+  padding: 12px 25px;
+  background-color: #274BFF;
+  border: 0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.p-card button:hover{
+  color: white;
+}
+
+.grid{
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.fa-check{
+  font-size: 10px;
+  background-color: #30a82046;
+  padding: 4px;
+  border-radius: 50px;
+  color: #30a820;
+}
+.p-card li:hover .fa-check{
+  background-color: #30a820;
+  color: white;
+}
+
+.p-card li:hover{
+  color: #30a820;
+
+}
+
