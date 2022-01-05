@@ -17,15 +17,15 @@ const AllCourses = () => {
     const courses = useSelector((state) => state.courses.allCourses);
 
     return (
-        <Container>
-            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} >
+        <Container sx={{ my: 6 }}>
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }} >
                 {
-                    courses.map(course => <Grid item xs={2} sm={4} md={4}>
-                        <Card sx={{ maxWidth: 365, boxShadow: 1 }}>
+                    courses.map(course => <Grid item xs={12} sm={6} md={4} >
+                        <Card sx={{ width: '100%', boxShadow: 1 }}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
-                                    height="240"
+                                    height="250"
                                     image={course.img}
                                     alt="green iguana"
                                 />

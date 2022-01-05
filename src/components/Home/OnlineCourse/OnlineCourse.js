@@ -42,9 +42,9 @@ const OnlineCourse = () => {
 
   return <Box sx={{ bgcolor: '#F3F4F8', py: 10, textAlign: 'start' }}>
     <Container>
-      <Grid container spacing={{ xs: 4, md: 20 }} columns={{ xs: 6, sm: 8, md: 12 }}>
+      <Grid container spacing={{ xs: 4, md: 10 }} columns={{ xs: 12, sm: 8, md: 12 }}>
         {/* online courses title area start here  */}
-        <Grid item xs={2} sm={6} md={6}>
+        <Grid item xs={12} sm={12} md={6}>
           <Typography variant="h3" gutterBottom component="div" sx={{ fontWeight: 'bold', color: '#0E1133', fontSize: '40px' }}>
             Find The Right <br />
             Online Course For You
@@ -52,8 +52,8 @@ const OnlineCourse = () => {
           <Typography variant="p" sx={{ color: '#53545b' }}> You don't have to struggle alone, you've got our assistance and help.</Typography>
         </Grid>
         {/* online courses navigation bar start here */}
-        <Grid item xs={2} sm={6} md={6}>
-          <AppBar position="static" sx={{ bgcolor: '#F3F4F8', boxShadow: 0, mt: 12.5 }}>
+        <Grid item xs={12} sm={12} md={6}>
+          <AppBar position="static" sx={{ bgcolor: '#F3F4F8', boxShadow: 0, mt: { sm: 0, md: 0, lg: 12.5 } }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
               <Button onClick={() => history.push(`/`)} style={{ color: '#2B4EFF' }}>
                 <StyledBadge badgeContent='New' color="secondary"></StyledBadge>
