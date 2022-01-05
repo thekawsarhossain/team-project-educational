@@ -1,6 +1,5 @@
 import { Box } from "@mui/system";
 import React from "react";
-import Navigation from "../../Shared/Navigation/Navigation";
 import CourseSlider from "../CourseSlider/CourseSlider";
 import Event from "../Event/Event";
 import OnlineCourse from "../OnlineCourse/OnlineCourse";
@@ -10,7 +9,6 @@ import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
   return <Box>
-    <Navigation />
     <PopularCourse />
     <CourseSlider />
     <OnlineCourse />
