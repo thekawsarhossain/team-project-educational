@@ -36,9 +36,6 @@ const Monthly = () => {
              <button>Get started</button>
           </div>
         </Grid>
-      
-       
-       
       </Grid>
     </Box>
   
