@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import {BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import {BrowserRouter as Router,  NavLink, Route, Switch } from "react-router-dom";
 import Annual from "./Annual";
 import Monthly from "./Monthly";
 
@@ -18,12 +18,22 @@ const Pricing = () => {
       <div className="pricing-card">
         <Router>
           <div className="price-button">
-            <Link to='/monthly'>
-            <button>Monthly Plan</button>
-            </Link>
-           <Link to='/annual'>
-           <button>Annual Plan</button>
-           </Link>
+          <NavLink
+              to="/monthly"
+              style={isActive => ({
+                color: isActive ? "white" : "black",
+                background: isActive ? "#2B4EFF" : 'white',
+              })} >
+           <span className="monthly-btn"> Monthly Plan</span>
+          </NavLink>
+          <NavLink
+              to="/annual"
+              style={isActive => ({
+                color: isActive ? "white" : "black",
+                background: isActive ? "#2B4EFF" : 'white',
+              })} >
+            <span className="annual-btn">Annual Plan</span>
+          </NavLink>
           </div>
           <Switch>
             <Route exact path='/'>
