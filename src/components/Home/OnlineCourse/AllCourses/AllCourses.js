@@ -34,7 +34,7 @@ const AllCourses = () => {
                                         <Typography variant="p" sx={{ color: '#53545b', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><LibraryBooksIcon /> {course.lessons} lessons</Typography>
                                         <Typography variant="p" sx={{ color: '#53545b', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><StarIcon sx={{ color: '#FF9415', fontSize: '18px' }} /> {course.rating} ({course.ratedBy})</Typography>
                                     </Box>
-                                    <Typography gutterBottom variant="h6" component="div" sx={{ color: '#0E1133', py: 1 }}>
+                                    <Typography gutterBottom variant="h6" component="div" sx={{ color: '#0E1133', py: 1, fontSize: '26px' }}>
                                         {course.title}
                                     </Typography>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
