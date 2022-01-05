@@ -10,8 +10,8 @@ const Home = () => {
     <PopularCourse />
     <CourseSlider />
     <OnlineCourse />
-    <Pricing/>
     <Event />
+    <Pricing />
   </div>;
 };
 
