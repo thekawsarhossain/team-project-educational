@@ -6,6 +6,7 @@ import AllCourses from './components/Home/OnlineCourse/AllCourses/AllCourses';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Navigation from './components/Shared/Navigation/Navigation';
+import CourseDetails from './components/CourseDetails/CourseDetails';
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path='/courses'>
             <AllCourses/>
+          </Route>
+          <Route path='/course/:id'>
+          <CourseDetails/>
           </Route>
           <Route path='/blogs'>
             <Blogs/>
