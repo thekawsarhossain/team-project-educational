@@ -38,14 +38,14 @@ const Navigation = () => {
     setAnchorElUser(null);
   };
 
-  return <AppBar position="static" sx={{ bgcolor: '#000' }}>
+  return <AppBar position="static" sx={{ bgcolor: '#EDEEF3', py: 2 }}>
     <Container>
       <Toolbar disableGutters>
         <Typography
           variant="h6"
           noWrap
           component="div"
-          sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+          sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color: '#000' }}
         >
           LOGO
         </Typography>
@@ -96,11 +96,11 @@ const Navigation = () => {
           LOGO
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
-            <Button onClick={() => history.push('/')}>Home</Button>
-            <Button onClick={() => history.push('/courses')}>Courses</Button>
-            <Button onClick={() => history.push('/blogs')}>Blog</Button>
-            <Button onClick={() => history.push('/about')}>About us</Button>
-            <Button onClick={() => history.push('/contact')}>Contact</Button>
+          <Button onClick={() => history.push('/')}>Home</Button>
+          <Button onClick={() => history.push('/courses')}>Courses</Button>
+          <Button onClick={() => history.push('/blogs')}>Blog</Button>
+          <Button onClick={() => history.push('/about')}>About us</Button>
+          <Button onClick={() => history.push('/contact')}>Contact</Button>
         </Box>
 
         {user ? <Box sx={{ flexGrow: 0 }}>
