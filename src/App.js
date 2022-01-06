@@ -1,4 +1,4 @@
-import { BrowserRouter as Router,  Switch,Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Blogs from './components/Blogs/Blogs';
 import Home from './components/Home/Home/Home';
@@ -7,12 +7,13 @@ import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Navigation from './components/Shared/Navigation/Navigation';
 import CourseDetails from './components/CourseDetails/CourseDetails';
+import EventDetails from './components/Home/Event/EventDetails/EventDetails';
 
 function App() {
   return (
     <div className="App">
       <Router>
-      <Navigation/>
+        <Navigation />
         <Switch>
           <Route exact path='/'>
             <Home />
@@ -21,19 +22,22 @@ function App() {
             <Home />
           </Route>
           <Route path='/courses'>
-            <AllCourses/>
+            <AllCourses />
           </Route>
           <Route path='/course/:id'>
-          <CourseDetails/>
+            <CourseDetails />
+          </Route>
+          <Route path='/event/:id'>
+            <EventDetails />
           </Route>
           <Route path='/blogs'>
-            <Blogs/>
+            <Blogs />
           </Route>
           <Route path='/about'>
-           <About/>
+            <About />
           </Route>
           <Route path='/contact'>
-            <Contact/>
+            <Contact />
           </Route>
         </Switch>
       </Router>

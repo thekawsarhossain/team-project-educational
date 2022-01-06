@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchCourses = createAsyncThunk(
     'course/fetchCourses',
     async () => {
-        const response = await fetch('https://polar-beach-00400.herokuapp.com/all-courses')
+        const response = await fetch('https://lit-lake-52047.herokuapp.com/all-courses')
             .then(res => res.json())
         return response
     }
@@ -14,7 +14,7 @@ export const fetchCourses = createAsyncThunk(
 export const fetchCoursesDetails = createAsyncThunk(
     'courseDetails/fetchCoursesDetails',
     async (id) => {
-        const response = await fetch(`https://polar-beach-00400.herokuapp.com/courses/${id}`)
+        const response = await fetch(`https://lit-lake-52047.herokuapp.com/courses/${id}`)
             .then(res => res.json())
         return response
     }

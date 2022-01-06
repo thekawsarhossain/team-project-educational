@@ -1,9 +1,10 @@
 import { Box, Button, Container, Paper, Typography } from "@mui/material";
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import { fetchEvents } from "../../../Redux/slices/eventSlice";
+import { fetchEventDetails, fetchEvents } from "../../../Redux/slices/eventSlice";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Event.css";
+import { useHistory } from "react-router-dom";
 
 const Event = () => {
 
@@ -15,6 +16,14 @@ const Event = () => {
   }, [dispatch])
 
   const events = useSelector((state) => state.events.events);
+
+  const histroy = useHistory();
+
+  // handle course function here 
+  const handleEvent = id => {
+    dispatch(fetchEventDetails(id))
+    histroy.push(`/event/${id}`);
+  }
 
 
   return <Container sx={{ py: 8 }}>
@@ -35,7 +44,7 @@ const Event = () => {
             <Typography variant="p" sx={{ color: '#333' }}>{event?.place} </Typography>
             <Typography variant="h5" sx={{ color: '#0E1133', fontWeight: 'bold', pt: 1 }}>{event?.title} </Typography>
           </Box>
-          <Button> View More <ArrowRightAltIcon /></Button>
+          <Button onClick={() => handleEvent(event?._id)}> View More <ArrowRightAltIcon /></Button>
         </Paper>)
       }
     </Box>
