@@ -3,7 +3,9 @@ footer{
   color: white;
   padding: 50px 0px 20px 0px;
 }
-
+a{
+  text-decoration: none;
+}
 .footer-item-1 img{
 width: 114px;
 }
@@ -48,7 +50,7 @@ width: 114px;
   }
 
   .footer-item-4 input{
-   padding: 15px;
+   padding: 15px 0px;
   }
 
   .footer-item-4 button{

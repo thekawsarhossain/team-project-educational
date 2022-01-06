@@ -4,6 +4,7 @@ import "./Footer.css";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import FooterBanner from "../../Home/FooterBanner/FooterBanner";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
   <div>
@@ -30,13 +31,19 @@ const Footer = () => {
         <div className="footer-item-2">
         <h2>Company</h2>
         <ul>
-          <li>About</li>
+         <Link to='/about'>
+         <li>About</li>
+         </Link>
+          <Link to='/courses'>
           <li>Courses</li>
-          <li>Events</li>
-          <li>Instructor</li>
-          <li>Career</li>
-          <li>Become a Teacher</li>
-          <li>Contact</li>
+          </Link>
+        <Link to='/blogs'>
+        <li>Events</li>
+        </Link>
+         <Link to='/contact'>
+         <li>Contact</li>
+         </Link>
+         
         </ul>
         </div>
         </Grid>
@@ -44,19 +51,30 @@ const Footer = () => {
         <div className="footer-item-2">
         <h2>Platform</h2>
         <ul>
-          <li>Browser Library</li>
-          <li>Library</li>
-          <li>Partners</li>
-          <li>News & Blogs</li>
-          <li>FAQs</li>
-          <li>Tutorials</li>
-        
+        <Link to='/#'>
+        <li>Browser Library</li>
+         </Link>
+         <Link to='/#'>
+         <li>Library</li>
+         </Link>
+         <Link to='/#'>
+         <li>Partners</li>
+         </Link>
+         <Link to='/#'>
+         <li>News & Blogs</li>
+         </Link>
+         <Link to='/#'>
+         <li>FAQs</li>
+         </Link>
+         <Link to='/#'>
+         <li>Tutorials</li>
+         </Link>
         </ul>
         </div>
         </Grid> <Grid item xs={12} md={4}>
         <div className="footer-item-4">
           <h2>Subscribe</h2>
-          <input  type="text" placeholder='Search' />
+          <input type="search" name="" placeholder="Search " className="search" />
             <button className='arrow-btn'><i className="fas fa-arrow-right"></i></button>
           <p>Get the latest news and updates right at your inbox.</p>
         </div>
