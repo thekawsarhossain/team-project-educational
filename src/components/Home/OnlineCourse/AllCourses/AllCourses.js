@@ -60,7 +60,7 @@ const AllCourses = () => {
                                         </Box>
                                         <Box>
                                             <Button variant="outlined" size="small">
-                                                {course.courseName[0]}
+                                                {course.courseName}
                                             </Button>
                                         </Box>
                                     </Box>
