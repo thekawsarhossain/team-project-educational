@@ -1,0 +1,75 @@
+
+.contact-section{
+  margin-top: 50px;
+ 
+}
+.contact-from{
+  text-align: left;
+}
+.contact-from .input-1{
+  margin: 30px 5px 0px 5px;
+ 
+}
+.contact-from .input-2{
+  width: 96%;
+  margin-bottom:20px ;
+}
+.contact-from input{
+  padding: 18px 10px;
+  width: 50%;
+  border: 0;
+  background-color: #ededee;
+  border-radius: 5px;
+  font-size: 15px;
+  
+}
+
+.contact-from input:focus, textarea:focus{
+  outline: 2px solid #274BFF;
+}
+.flex{
+  display: flex;
+ 
+}
+
+.contact-from button{
+  margin: 20px 0px;
+  border: 0;
+  background-color: #274BFF;
+  padding: 15px 50px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+.contact-from button:hover{
+
+  color: black;
+
+}
+textarea{
+  width: 95%;
+  background-color: #ededee;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 15px;
+  
+}
+
+.address-info{
+  width: 350px;
+  height: 500px;
+  margin: 0 auto;
+  box-shadow: 0px 2px 5px 0px #b5b6bd;
+  padding: 25px;
+  
+}
+.address-info h4{
+  color: #274BFF;
+
+}
+.add{
+  margin-bottom: 50px;
+  
+}
