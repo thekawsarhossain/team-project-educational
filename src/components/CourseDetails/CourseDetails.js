@@ -11,6 +11,7 @@ const CourseDetails = () => {
 
   return (
     <div>
+
       <Container>
       <Box sx={{ width: '100%'}}>
       <Grid container
@@ -74,6 +75,7 @@ const CourseDetails = () => {
       </Grid>
     </Box>
       </Container>
+
     </div>
   );
 };
