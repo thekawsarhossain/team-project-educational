@@ -10,17 +10,28 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Box } from '@mui/system';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { fetchCoursesDetails } from '../../../../Redux/slices/courseSlice';
 
 const AllCourses = () => {
-
     // getting data from redux 
     const courses = useSelector((state) => state.courses.allCourses);
+
+    const histroy = useHistory();
+    const dispatch = useDispatch();
+    // handle course function here 
+    const handleCourse = id => {
+        dispatch(fetchCoursesDetails(id))
+        histroy.push(`/course/${id}`);
+    }
+
 
     return (
         <Container sx={{ my: 6 }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }} >
                 {
-                    courses.map(course => <Grid item xs={12} sm={6} md={4} >
+                    courses.map(course => <Grid item xs={12} sm={6} md={4} key={course._id} >
                         <Card sx={{ width: '100%', boxShadow: 1 }}>
                             <CardActionArea>
                                 <CardMedia
@@ -34,7 +45,7 @@ const AllCourses = () => {
                                         <Typography variant="p" sx={{ color: '#53545b', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}><LibraryBooksIcon /> {course.lessons} lessons</Typography>
                                         <Typography variant="p" sx={{ color: '#53545b', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><StarIcon sx={{ color: '#FF9415', fontSize: '18px' }} /> {course.rating} ({course.ratedBy})</Typography>
                                     </Box>
-                                    <Typography gutterBottom variant="h6" component="div" sx={{ color: '#0E1133', py: 1 }}>
+                                    <Typography gutterBottom variant="h6" component="div" sx={{ color: '#0E1133', py: 1, fontSize: '26px' }}>
                                         {course.title}
                                     </Typography>
                                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -61,7 +72,7 @@ const AllCourses = () => {
                                                 ${course.newPrice}
                                             </Typography>
                                         </Box>
-                                        <Button sx={{ color: '#0E1133' }}> Know More <ArrowRightAltIcon /></Button>
+                                        <Button sx={{ color: '#0E1133' }} onClick={() => handleCourse(course._id)}> Know More <ArrowRightAltIcon /></Button>
                                     </Box>
                                 </CardContent>
                             </CardActionArea>

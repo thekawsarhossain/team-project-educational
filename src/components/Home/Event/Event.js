@@ -28,7 +28,7 @@ const Event = () => {
     {/* events items start here  */}
     <Box sx={{ my: 6 }}>
       {
-        events?.map(event => <Paper key={event.id} elevation={2} sx={{ p: 3, my: 2, width: '70%', mx: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        events?.map(event => <Paper key={event._id} elevation={2} sx={{ p: 3, my: 2, width: '70%', mx: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Box sx={{ textAlign: 'start' }}>
             <Typography variant="p" sx={{ color: '#333' }}>{event?.date} | </Typography>
             <Typography variant="p" sx={{ color: '#333' }}>{event?.time} | </Typography>
