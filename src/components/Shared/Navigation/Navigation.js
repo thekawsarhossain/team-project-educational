@@ -125,7 +125,7 @@ const Navigation = () => {
             onClose={handleCloseUserMenu}
           >
             <Button>Profile</Button>
-            <Button>Dashboard</Button>
+            <Button onClick={() => history.push('/dashboard')}>Dashboard</Button>
             <Button>Logout</Button>
           </Menu>
         </Box> : <Button variant="contained" onClick={() => history.push('/login')}>Login</Button>}

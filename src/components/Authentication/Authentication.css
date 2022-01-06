@@ -1,0 +1,28 @@
+body{
+    background: #fafafa;
+}
+.or::before{
+    content: '';
+    display: inline-block;
+    width: 40%;
+    height: 1px;
+    background: gray;
+    transform: translateY(5px);
+    margin: 10px;
+}
+.or{
+    color: #333;
+}
+.or::after{
+    content: '';
+    display: inline-block;
+    width: 40%;
+    height: 1px;
+    background: gray;
+    transform: translateY(5px);
+    margin: 10px;
+}
+
+.title{
+    font-family:  cursive;
+}
