@@ -5,17 +5,17 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
-import { useNavigate } from 'react-router-dom';
-import './Authentication.css';
-import useAuth from '../../Hooks/useAuth';
+import { useHistory } from 'react-router-dom';
 import Container from '@mui/material/Container';
+import './Authentication.css';
+import useAuth from '../../hooks/useAuth';
 
 const Signup = () => {
 
     // useAuth custom hook here 
     const { createUser, error, signInWithGoogle, signInWithFacebook } = useAuth();
     // react hook here 
-    const navigate = useNavigate();
+    const history = useHistory();
 
     // react hook form functions here 
     const { register, handleSubmit, reset } = useForm();
@@ -24,19 +24,19 @@ const Signup = () => {
             alert("Password isn't matched ");
             return;
         } else {
-            createUser(data.email, data.password, data.name, navigate)
+            createUser(data.email, data.password, data.name, history)
         }
         reset()
     };
 
     // handle signup btn function here 
     const handleLogin = () => {
-        navigate('/login');
+        history('/login');
     }
 
     // main function here
     return (
-        <Container className="my-5">
+        <Container sx={{ my: 8 }}>
             <Paper variant="outlined" sx={{ width: { md: '80%', sm: '100%', lg: '40%' }, m: 'auto', p: 2, mb: 1 }}>
                 <Typography variant="h4" gutterBottom component="div" sx={{ fontWeight: 'bold', fontStyle: 'italic' }}>
                     <span className="title">Amateur Photographers</span>
@@ -44,7 +44,7 @@ const Signup = () => {
                 <Box>
 
                     {/* form input section start here  */}
-                    <form onSubmit={handleSubmit(onSubmit)} className="p-2">
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <TextField sx={{ width: '100%', my: 1 }} label="Name" type="text" variant="outlined" {...register("name")} required />
                         <TextField sx={{ width: '100%', my: 1 }} label="Email" type="email" variant="outlined" {...register("email")} required />
                         <TextField sx={{ width: '100%', my: 1 }} label="Password" type="password" variant="outlined" {...register("password")} required />
@@ -54,8 +54,8 @@ const Signup = () => {
                         {/* login with other section here  */}
                         <span className="or">OR</span>
                         <Box>
-                            <Button onClick={() => signInWithFacebook(navigate)} variant="text"><FacebookIcon /> <span className="mt-1"> Facebook</span> </Button>
-                            <Button onClick={() => signInWithGoogle(navigate)} variant="text"><GoogleIcon /> <span className="mt-1"> Google</span> </Button>
+                            <Button onClick={() => signInWithFacebook(history)} variant="text"><FacebookIcon /> <span className="mt-1"> Facebook</span> </Button>
+                            <Button onClick={() => signInWithGoogle(history)} variant="text"><GoogleIcon /> <span className="mt-1"> Google</span> </Button>
                         </Box>
                     </form>
 

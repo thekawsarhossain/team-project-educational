@@ -1,16 +1,17 @@
+import { Alert, Paper, TextField, Typography, Container, Box } from '@mui/material';
 import Button from '@mui/material/Button';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useHistory } from 'react-router-dom';
-// import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import './Authentication.css';
 
 const Login = () => {
 
     // useAuth custom hook here 
-    // const { signIn, error, signInWithGoogle, signInWithFacebook } = useAuth();
+    const { signIn, error, signInWithGoogle, signInWithFacebook } = useAuth();
 
     // react hook here 
     const history = useHistory();
@@ -18,7 +19,7 @@ const Login = () => {
     // react hook form functions here 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        // signIn(data.email, data.password, history);
+        signIn(data.email, data.password, history);
         reset()
     };
 
@@ -29,15 +30,15 @@ const Login = () => {
 
     // main function here
     return (
-        <Container className="my-5">
+        <Container sx={{ my: 8 }}>
             <Paper variant="outlined" sx={{ width: { md: '80%', sm: '100%', lg: '40%' }, m: 'auto', p: 2, mb: 1 }}>
                 <Typography variant="h4" gutterBottom component="div" sx={{ fontWeight: 'bold', fontStyle: 'italic' }}>
-                    <span className="title">Amateur Photographers</span>
+                    <span className="title">Please Login</span>
                 </Typography>
                 <Box>
 
                     {/* form input section start here  */}
-                    <form onSubmit={handleSubmit(onSubmit)} className="p-2">
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <TextField sx={{ width: '100%', my: 1 }} label="Email" type="email" variant="outlined" {...register("email")} required />
                         <TextField sx={{ width: '100%', my: 1 }} label="Password" type="password" variant="outlined" {...register("password")} required />
                         <Button sx={{ width: '100%', my: 1 }} variant="outlined" type="submit">Login</Button>
@@ -58,7 +59,7 @@ const Login = () => {
             </Paper>
 
             {/* showing the error when neede */}
-            {/* {error && <Alert sx={{ width: { md: '80%', sm: '100%', lg: '40%' }, m: 'auto' }} severity="error">{error}</Alert>} */}
+            {error && <Alert sx={{ width: { md: '80%', sm: '100%', lg: '40%' }, m: 'auto' }} severity="error">{error}</Alert>}
         </Container>);
 };
 
