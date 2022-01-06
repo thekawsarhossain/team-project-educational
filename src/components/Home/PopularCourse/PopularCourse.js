@@ -4,8 +4,12 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
+import { useHistory } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const PopularCourse = () => {
+
+  const history = useHistory();
 
   return (
     <div className="popular-courses">
@@ -24,10 +28,8 @@ const PopularCourse = () => {
                 </span> Courses</h1>
             </div>
             <div className="p-info">
-              <Link href="#" underline="none">
-                <p>View all Category <i className="fas fa-arrow-right"></i></p></Link>
+              <Button onClick={() => history.push('/courses')}>View all Category <i className="fas fa-arrow-right"></i></Button>
             </div>
-
 
           </Grid>
           <Grid container spacing={1} >
