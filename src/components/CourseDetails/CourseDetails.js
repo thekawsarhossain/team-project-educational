@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {Container,Box,Grid} from '@mui/material'
-import './CourseDetails.css'
 import { Link } from 'react-router-dom';
+import Rating from 'react-rating';
+import './CourseDetails.css'
 const CourseDetails = () => {
 
   const courseDetails = useSelector(state => state.courses.courseDetails);
@@ -36,12 +37,13 @@ const CourseDetails = () => {
          <div className="flex-2">
          <p><small>Review:</small></p> 
          <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i> 
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-           <>{courseDetails.rating} ({courseDetails.ratedBy})</></p>
+         <Rating className='rating '
+                         emptySymbol="far fa-star"
+                         fullSymbol="fas fa-star"
+                         readonly
+                         initialRating={courseDetails.rating}>
+                 </Rating>
+           <> ({courseDetails.ratedBy})</></p>
          
          </div>
        </div>
@@ -56,12 +58,12 @@ const CourseDetails = () => {
           <div className='details-2'>
            <h1>${courseDetails.newPrice}
            <span><del>{courseDetails.previousPrice}</del></span></h1>
-            <li>Instructor : <span>{courseDetails.instructorName}</span></li>
-            <li>Lectures : <span>{courseDetails.lessons}</span></li>
-            <li>Duration : <span>11h 21m 30s</span></li>
-            <li>Enrolled : <span>3 student</span></li>
-            <li>Course level : <span>Intermediate</span></li>
-            <li>Language : <span>English</span></li>
+            <li><i class="fas fa-home"></i> Instructor : <span>{courseDetails.instructorName}</span></li>
+            <li><i class="fas fa-book"></i> Lectures : <span>{courseDetails.lessons}</span></li>
+            <li><i class="far fa-clock"></i> Duration : <span>11h 21m 30s</span></li>
+            <li><i class="far fa-user"></i> Enrolled : <span>3 student</span></li>
+            <li><i class="fas fa-tag"></i> Course level : <span>Intermediate</span></li>
+            <li><i class="fas fa-globe"></i> Language : <span>English</span></li>
 
             <Link to='/#'>
             <button>Add To Cart</button>
