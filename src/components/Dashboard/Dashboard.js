@@ -22,19 +22,14 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import ReviewsIcon from '@mui/icons-material/Reviews';
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom';
 import Profile from './Profile/Profile';
-import MyOrders from './MyOrders/MyOrders';
-import Payment from './Payment/Payment';
-import GiveReview from './GiveReview/GiveReview';
-import ManageProducts from './ManageProducts/ManageProducts';
-import AddProducts from './AddProducts/AddProducts';
 import AddIcon from '@mui/icons-material/Add';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
-import ManageOrders from './ManageOrders/ManageOrders';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import useAuth from '../../hooks/useAuth';
 import AdminRoute from '../AdminRoute/AdminRoute';
+import AddCourses from './AddCourses/AddCourses';
 
 const admin = true;
 const drawerWidth = 240;
@@ -262,19 +257,19 @@ const Dashboard = () => {
                     </Route>
                     <Route path={`${path}/give-review`}>
                         <GiveReview />
-                    </Route>
+                    </Route> */}
                     <AdminRoute path={`${path}/add-products`}>
-                        <AddProducts />
-                    </AdminRoute>
+                        <AddCourses />
+                    </AdminRoute> {/* 
                     <AdminRoute path={`${path}/manage-products`}>
                         <ManageProducts />
                     </AdminRoute>
                     <AdminRoute path={`${path}/manage-orders`}>
                         <ManageOrders />
-                    </AdminRoute>
+                    </AdminRoute> */}
                     <AdminRoute path={`${path}/make-admin`}>
                         <MakeAdmin />
-                    </AdminRoute> */}
+                    </AdminRoute>
                 </Switch>
             </Box>
         </Box>

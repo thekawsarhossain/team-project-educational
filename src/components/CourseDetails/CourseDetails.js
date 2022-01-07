@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { Container, Box, Grid } from '@mui/material'
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Container, Box, Grid, CircularProgress } from '@mui/material'
 import { Link } from 'react-router-dom';
 import Rating from 'react-rating';
 import './CourseDetails.css'

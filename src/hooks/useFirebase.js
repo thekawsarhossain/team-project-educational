@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, sendEmailVerification, deleteUser, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from '../Firebase/Firebase.init';
 
@@ -11,11 +11,11 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     // auth and providers here 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
-    const facebookProvider = new FacebookAuthProvider();
 
     // create user with email and password here 
     const createUser = (email, password, name, history) => {
@@ -26,6 +26,7 @@ const useFirebase = () => {
                 setUser(result.user);
                 setError('');
                 history.push('/home');
+                saveUser(email, name, 'POST')
             })
             .catch(error => setError(error.message))
             .finally(() => setLoading(false));
@@ -66,21 +67,6 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     }
 
-    // verify email here 
-    const verifyEmail = () => {
-        sendEmailVerification(auth.currentUser)
-            .then(() => console.log('sendddd'))
-            .catch(error => setError(error.message))
-            ;
-    }
-
-    // delete user here 
-    const userDelete = () => {
-        deleteUser(auth.currentUser)
-            .then(() => { })
-            .catch(error => setError(error.message))
-    }
-
     // google sign in here 
     const signInWithGoogle = history => {
         setLoading(true)
@@ -89,23 +75,28 @@ const useFirebase = () => {
                 setUser(result.user);
                 setError('');
                 history.push("/home");
+                saveUser(result.user.email, result.user.displayName, 'PUT');
             })
             .catch(error => setError(error.message))
             .finally(() => setLoading(false))
     }
 
-    // facebook sign in here 
-    // const signInWithFacebook = history => {
-    //     setLoading(true)
-    //     signInWithPopup(auth, facebookProvider)
-    //         .then(result => {
-    //             setUser(result.user);
-    //             setError('');
-    //             history.push("/home");
-    //         })
-    //         .catch(error => setError(error.message))
-    //         .finally(() => setLoading(false))
-    // }
+    // save user 
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName }
+        fetch('https://lit-lake-52047.herokuapp.com/users', {
+            method: method,
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+    }
+
+    // user admin data loading 
+    useEffect(() => {
+        fetch(`https://lit-lake-52047.herokuapp.com/user/${user.email}`)
+            .then(response => response.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
 
     // log out user here 
     const logoutUser = () => {
@@ -116,6 +107,7 @@ const useFirebase = () => {
 
     // returning here all the necessary things
     return {
+        admin,
         user,
         error,
         setUser,
@@ -123,11 +115,8 @@ const useFirebase = () => {
         createUser,
         signIn,
         loading,
-        // verifyEmail,
-        // userDelete,
         logoutUser,
         signInWithGoogle,
-        // signInWithFacebook
     }
 }
 
