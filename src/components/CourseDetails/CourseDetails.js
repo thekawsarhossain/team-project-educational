@@ -1,12 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Container, Box, Grid } from '@mui/material'
+import React, { useEffect, useState } from 'react';
+import { Container, Box, Grid, CircularProgress } from '@mui/material'
 import { Link } from 'react-router-dom';
 import Rating from 'react-rating';
 import './CourseDetails.css'
+import { useParams } from 'react-router-dom';
+
 const CourseDetails = () => {
 
-  const courseDetails = useSelector(state => state.courses.courseDetails);
+
+  const { id } = useParams();
+  const [courseDetails, setCourseDetails] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch()
+      .then(response => response.json(`https://lit-lake-52047.herokuapp.com/courses/${id}`))
+      .then(data => setCourseDetails(data))
+      .finally(() => setLoading(false))
+  })
+
+  if (loading) {
+    return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+  }
+
 
   return (
     <div>

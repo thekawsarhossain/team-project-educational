@@ -8,19 +8,16 @@ import Home from './components/Home/Home/Home';
 import AllCourses from './components/Home/OnlineCourse/AllCourses/AllCourses';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-import Navigation from './components/Shared/Navigation/Navigation';
 import CourseDetails from './components/CourseDetails/CourseDetails';
 import EventDetails from './components/Home/Event/EventDetails/EventDetails';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import Footer from './components/Shared/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
-          <Navigation />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/home' component={Home} />
@@ -34,7 +31,6 @@ function App() {
             <PrivateRoute path='/login' component={Login} />
             <PrivateRoute path='/signup' component={Signup} />
           </Switch>
-          <Footer />
         </Router>
       </AuthProvider>
     </div>

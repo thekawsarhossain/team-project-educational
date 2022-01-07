@@ -33,10 +33,10 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import ManageOrders from './ManageOrders/ManageOrders';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
-import AdminRoute from '../AdminRoute/AdminRoute';
 import useAuth from '../../hooks/useAuth';
+import AdminRoute from '../AdminRoute/AdminRoute';
 
-
+const admin = true;
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -118,7 +118,7 @@ const Dashboard = () => {
     };
 
     // getting user data from context api here 
-    const { user, logoutUser, admin } = useAuth();
+    const { user, logoutUser } = useAuth();
 
     // nesting router hook here 
     let { path, url } = useRouteMatch();
@@ -174,23 +174,15 @@ const Dashboard = () => {
                             <ListItemIcon>
                                 {<ShoppingCartIcon />}
                             </ListItemIcon>
-                            <ListItemText primary="My Orders" />
+                            <ListItemText primary="Cart" />
                         </ListItem>
                     </Link>
-                    {/* <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/payment`}>
-                        <ListItem button>
-                            <ListItemIcon>
-                                {<PaymentsIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary="Payment" />
-                        </ListItem>
-                    </Link> */}
                     <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/give-review`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<ReviewsIcon />}
                             </ListItemIcon>
-                            <ListItemText primary="Review" />
+                            <ListItemText primary="Give Review" />
                         </ListItem>
                     </Link>
                 </List>
@@ -202,7 +194,7 @@ const Dashboard = () => {
                                 <ListItemIcon>
                                     {<AddIcon />}
                                 </ListItemIcon>
-                                <ListItemText primary="Add Products" />
+                                <ListItemText primary="Add Course" />
                             </ListItem>
                         </Link>
                         <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/make-admin`}>
@@ -228,7 +220,15 @@ const Dashboard = () => {
                                 <ListItemIcon>
                                     {<AutoAwesomeMotionIcon />}
                                 </ListItemIcon>
-                                <ListItemText primary="Manage Products" />
+                                <ListItemText primary="Manage courses" />
+                            </ListItem>
+                        </Link>
+                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-products`}>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    {<AutoAwesomeMotionIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary="Manage Event" />
                             </ListItem>
                         </Link>
                     </List>
@@ -254,7 +254,7 @@ const Dashboard = () => {
                     <Route path={`${path}/profile`}>
                         <Profile />
                     </Route>
-                    <Route path={`${path}/my-orders`}>
+                    {/* <Route path={`${path}/my-orders`}>
                         <MyOrders />
                     </Route>
                     <Route path={`${path}/payment/:Id`}>
@@ -274,7 +274,7 @@ const Dashboard = () => {
                     </AdminRoute>
                     <AdminRoute path={`${path}/make-admin`}>
                         <MakeAdmin />
-                    </AdminRoute>
+                    </AdminRoute> */}
                 </Switch>
             </Box>
         </Box>
