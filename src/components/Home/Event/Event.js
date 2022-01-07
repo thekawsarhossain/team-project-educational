@@ -17,13 +17,8 @@ const Event = () => {
 
   const events = useSelector((state) => state.events.events);
 
-  const histroy = useHistory();
+  const history = useHistory();
 
-  // handle course function here 
-  const handleEvent = id => {
-    dispatch(fetchEventDetails(id))
-    histroy.push(`/event/${id}`);
-  }
 
 
   return <Container sx={{ py: 8 }}>
@@ -44,7 +39,7 @@ const Event = () => {
             <Typography variant="p" sx={{ color: '#333' }}>{event?.place} </Typography>
             <Typography variant="h5" sx={{ color: '#0E1133', fontWeight: 'bold', pt: 1 }}>{event?.title} </Typography>
           </Box>
-          <Button onClick={() => handleEvent(event?._id)}> View More <ArrowRightAltIcon /></Button>
+          <Button onClick={() => history.push(`/event/${event._id}`)}> View More <ArrowRightAltIcon /></Button>
         </Paper>)
       }
     </Box>

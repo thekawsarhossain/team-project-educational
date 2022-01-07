@@ -10,21 +10,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Box } from '@mui/system';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { fetchCoursesDetails } from '../../../../Redux/slices/courseSlice';
 
 const AllCourses = () => {
     // getting data from redux 
     const courses = useSelector((state) => state.courses.allCourses);
 
-    const histroy = useHistory();
-    const dispatch = useDispatch();
-    // handle course function here 
-    const handleCourse = id => {
-        dispatch(fetchCoursesDetails(id))
-        histroy.push(`/course/${id}`);
-    }
+    const history = useHistory();
 
 
     return (
@@ -72,7 +64,7 @@ const AllCourses = () => {
                                                 ${course.newPrice}
                                             </Typography>
                                         </Box>
-                                        <Button sx={{ color: '#0E1133' }} onClick={() => handleCourse(course._id)}> Know More <ArrowRightAltIcon /></Button>
+                                        <Button sx={{ color: '#0E1133' }} onClick={() => history.push(`/course/${course?._id}`)}> Know More <ArrowRightAltIcon /></Button>
                                     </Box>
                                 </CardContent>
                             </CardActionArea>

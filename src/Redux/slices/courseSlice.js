@@ -10,15 +10,6 @@ export const fetchCourses = createAsyncThunk(
     }
 )
 
-// single course data 
-export const fetchCoursesDetails = createAsyncThunk(
-    'courseDetails/fetchCoursesDetails',
-    async (id) => {
-        const response = await fetch(`https://lit-lake-52047.herokuapp.com/courses/${id}`)
-            .then(res => res.json())
-        return response
-    }
-)
 
 const courseSlice = createSlice({
     name: 'courses',
@@ -36,13 +27,6 @@ const courseSlice = createSlice({
             state.status = 'success'
         })
         builder.addCase(fetchCourses.pending, (state, action) => {
-            state.status = 'pending'
-        })
-        builder.addCase(fetchCoursesDetails.fulfilled, (state, action) => {
-            state.courseDetails = action.payload;
-            state.status = 'success'
-        })
-        builder.addCase(fetchCoursesDetails.pending, (state, action) => {
             state.status = 'pending'
         })
     },

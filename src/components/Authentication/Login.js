@@ -2,7 +2,6 @@ import { Alert, Paper, TextField, Typography, Container, Box } from '@mui/materi
 import Button from '@mui/material/Button';
 import React from 'react';
 import { useForm } from "react-hook-form";
-import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -11,7 +10,7 @@ import './Authentication.css';
 const Login = () => {
 
     // useAuth custom hook here 
-    const { signIn, error, signInWithGoogle, signInWithFacebook } = useAuth();
+    const { signIn, error, signInWithGoogle } = useAuth();
 
     // react hook here 
     const history = useHistory();
@@ -46,9 +45,7 @@ const Login = () => {
                         {/* login with other section here  */}
                         <span className="or">OR</span>
                         <Box>
-                            <Button variant="text"><FacebookIcon /> <span className="mt-1">Facebook</span> </Button>
-                            <Button variant="text"><GoogleIcon /> <span className="mt-1">Google</span> </Button> <br />
-                            <Button variant="text" size="small" sx={{ color: '#000' }}>forgot password?</Button>
+                            <Button onClick={() => signInWithGoogle(history)} variant="text"><GoogleIcon /> <span> Google</span> </Button>
                         </Box>
                     </form>
 

@@ -28,28 +28,28 @@ const Contact = () => {
         <Grid item xs={12} md={6} sx={{ mt: 4 }}>
           <div className="address-info">
             <div className="add">
-              <h4><i class="fas fa-map-marker-alt"></i> New York Office</h4>
+              <h4><i className="fas fa-map-marker-alt"></i> New York Office</h4>
               <p>Maypole Crescent 70-80 </p>
               <p>Upper St Norwich NR2 1LT</p>
             </div>
             <div className="add">
-              <h4><i class="fas fa-envelope"></i> Email us directly</h4>
+              <h4><i className="fas fa-envelope"></i> Email us directly</h4>
               <p>support@educal.com</p>
               <p> support@educal.com</p>
             </div>
             <div className="add">
-              <h4><i class="fas fa-phone-alt"></i> Phone</h4>
+              <h4><i className="fas fa-phone-alt"></i> Phone</h4>
               <p>+(880)124578011</p>
               <p>+(880)124578011</p>
             </div>
 
           </div>
-        </Grid>
-      </Grid>
+        </Grid >
+      </Grid >
 
 
-    </Container>
-  </div>;
+    </Container >
+  </div >;
 };
 
 export default Contact;

@@ -12,10 +12,13 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import { useHistory } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 
 const Navigation = () => {
-  const user = false;
+
+  // user info here 
+  const { user, logoutUser } = useAuth();
 
   // react router hook here 
   const history = useHistory();
@@ -103,7 +106,7 @@ const Navigation = () => {
           <Button onClick={() => history.push('/contact')}>Contact</Button>
         </Box>
 
-        {user ? <Box sx={{ flexGrow: 0 }}>
+        {user.email ? <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -127,7 +130,7 @@ const Navigation = () => {
           >
             <Button>Profile</Button>
             <Button onClick={() => history.push('/dashboard')}>Dashboard</Button>
-            <Button>Logout</Button>
+            <Button onClick={logoutUser}>Logout</Button>
           </Menu>
         </Box> : <Button variant="contained" onClick={() => history.push('/login')}>Login</Button>}
       </Toolbar>

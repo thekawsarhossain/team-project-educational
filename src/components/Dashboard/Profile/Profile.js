@@ -1,7 +1,9 @@
 import { Container, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
+
 import noImage from '../../../images/hero-1.jpg';
+
 
 const Profile = () => {
 
@@ -28,7 +30,7 @@ const Profile = () => {
                 <CardMedia
                     component="img"
                     height="250"
-                    image={user.photoURL ? user.photoURL : noImage}
+                    image={user.photoURL ? user.photoURL : profile}
                     alt="profile"
                 />
                 <CardContent sx={{ textAlign: 'start' }}>

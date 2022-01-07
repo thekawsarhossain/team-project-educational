@@ -95,17 +95,17 @@ const useFirebase = () => {
     }
 
     // facebook sign in here 
-    const signInWithFacebook = history => {
-        setLoading(true)
-        signInWithPopup(auth, facebookProvider)
-            .then(result => {
-                setUser(result.user);
-                setError('');
-                history.push("/home");
-            })
-            .catch(error => setError(error.message))
-            .finally(() => setLoading(false))
-    }
+    // const signInWithFacebook = history => {
+    //     setLoading(true)
+    //     signInWithPopup(auth, facebookProvider)
+    //         .then(result => {
+    //             setUser(result.user);
+    //             setError('');
+    //             history.push("/home");
+    //         })
+    //         .catch(error => setError(error.message))
+    //         .finally(() => setLoading(false))
+    // }
 
     // log out user here 
     const logoutUser = () => {
@@ -123,11 +123,11 @@ const useFirebase = () => {
         createUser,
         signIn,
         loading,
-        verifyEmail,
-        userDelete,
+        // verifyEmail,
+        // userDelete,
         logoutUser,
         signInWithGoogle,
-        signInWithFacebook
+        // signInWithFacebook
     }
 }
 
