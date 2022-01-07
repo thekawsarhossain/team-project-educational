@@ -1,6 +1,3 @@
-import { useSelector } from 'react-redux';
-import { Container, Box, Grid } from '@mui/material'
-import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Rating from 'react-rating';
@@ -8,6 +5,7 @@ import './CourseDetails.css'
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../Redux/slices/cartSlice';
+import { Box, CircularProgress, Container, Grid } from '@mui/material';
 
 const CourseDetails = () => {
 
@@ -27,6 +25,7 @@ const CourseDetails = () => {
   if (loading) {
     return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
   }
+
 
   return (
     <div>

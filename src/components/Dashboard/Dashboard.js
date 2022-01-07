@@ -24,10 +24,16 @@ import { Link, useRouteMatch, Switch, Route } from 'react-router-dom';
 import Profile from './Profile/Profile';
 import AddIcon from '@mui/icons-material/Add';
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import MakeAdmin from './MakeAdmin/MakeAdmin';
-import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import useAuth from '../../hooks/useAuth';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import FileCopyIcon from '@mui/icons-material/FileCopy';
+import MyOrders from './MyOrders/MyOrders';
+import Payment from './Payment/Payment';
+import GiveReview from './GiveReview/GiveReview';
+import ManageProducts from './ManageProducts/ManageProducts';
+import AddProducts from './AddProducts/AddProducts';
+import ManageOrders from './ManageOrders/ManageOrders';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import AddCourses from './AddCourses/AddCourses';
 
@@ -267,9 +273,9 @@ const Dashboard = () => {
                     <AdminRoute path={`${path}/manage-orders`}>
                         <ManageOrders />
                     </AdminRoute> */}
-                    <AdminRoute path={`${path}/make-admin`}>
+                    <Route path={`${path}/make-admin`}>
                         <MakeAdmin />
-                    </AdminRoute>
+                    </Route>
                 </Switch>
             </Box>
         </Box>
