@@ -1,5 +1,8 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Login from './components/Authentication/Login';
+import Signup from './components/Authentication/Signup';
+import Dashboard from './components/Dashboard/Dashboard';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Blogs from './components/Blogs/Blogs';
 import Home from './components/Home/Home/Home';
 import AllCourses from './components/Home/OnlineCourse/AllCourses/AllCourses';
