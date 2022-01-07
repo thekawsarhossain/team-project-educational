@@ -21,7 +21,7 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 // import PaymentsIcon from '@mui/icons-material/Payments';
 import ReviewsIcon from '@mui/icons-material/Reviews';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom';
 import Profile from './Profile/Profile';
 import MyOrders from './MyOrders/MyOrders';
