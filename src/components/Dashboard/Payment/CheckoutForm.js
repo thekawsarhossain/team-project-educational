@@ -1,8 +1,10 @@
-// import { Button } from '@mui/material';
-// import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-// import spinner from '../../../image/loading.gif';
-// import React, { useEffect, useState } from 'react';
-// import swal from 'sweetalert';
+
+import { Button } from '@mui/material';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import spinner from '../../../images/ZhKG.gif';
+import React, { useEffect, useState } from 'react';
+import swal from 'sweetalert';
+
 
 // const CheckoutForm = ({ price, id }) => {
 

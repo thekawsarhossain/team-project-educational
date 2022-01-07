@@ -1,7 +1,9 @@
 import { Container, Card, CardMedia, CardContent, Typography } from '@mui/material';
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
-import profile from '../../../images/profile.svg';
+
+import noImage from '../../../images/hero-1.jpg';
+
 
 const Profile = () => {
 
