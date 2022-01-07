@@ -23,14 +23,11 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-const rootReducer = combineReducres({
-  courses: courseSlice,
-  events: eventSlice,
-  blogs: blogSlice,
-})
-
 export const store = configureStore({
   reducer: {
+    courses: courseSlice,
+    events: eventSlice,
+    blogs: blogSlice,
     all: persistedReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
