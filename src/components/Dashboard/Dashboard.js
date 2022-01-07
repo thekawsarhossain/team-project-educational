@@ -273,9 +273,9 @@ const Dashboard = () => {
                     <AdminRoute path={`${path}/manage-orders`}>
                         <ManageOrders />
                     </AdminRoute> */}
-                    <Route path={`${path}/make-admin`}>
+                    <AdminRoute path={`${path}/make-admin`}>
                         <MakeAdmin />
-                    </Route>
+                    </AdminRoute>
                 </Switch>
             </Box>
         </Box>

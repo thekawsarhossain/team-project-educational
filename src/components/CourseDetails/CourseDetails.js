@@ -47,10 +47,6 @@ const CourseDetails = () => {
                       <p>{courseDetails?.instructorName}</p>
                     </div>
                   </div>
-                  <div className="flex-2">
-                    <p><small> Last Update :</small></p>
-                    <p>January 25, 2022</p>
-                  </div>
 
                   <div className="flex-2">
                     <p><small>Review:</small></p>
@@ -79,7 +75,6 @@ const CourseDetails = () => {
                 <li><i className="fas fa-home"></i> Instructor : <span>{courseDetails?.instructorName}</span></li>
                 <li><i className="fas fa-book"></i> Lectures : <span>{courseDetails?.lessons}</span></li>
                 <li><i className="far fa-clock"></i> Duration : <span>11h 21m 30s</span></li>
-                <li><i className="far fa-user"></i> Enrolled : <span>3 student</span></li>
                 <li><i className="fas fa-tag"></i> Course level : <span>Intermediate</span></li>
                 <li><i className="fas fa-globe"></i> Language : <span>English</span></li>
 

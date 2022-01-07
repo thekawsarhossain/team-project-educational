@@ -8,8 +8,9 @@ const AddCourses = () => {
 
     const { user } = useAuth();
 
-    const { handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
+        console.log(data)
         fetch('https://lit-lake-52047.herokuapp.com/all-courses', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
@@ -37,39 +38,41 @@ const AddCourses = () => {
                 lg: '70%',
             }, mx: 'auto'
         }}>
-            <Typography variant="h4" className="title" style={{ fontWeight: 'bold' }}>Add a product </Typography>
+            <Typography variant="h4" className="title" style={{ fontWeight: 'bold' }}>Add a New Course </Typography>
             <Box className="product-card " sx={{ p: 3, m: 2 }}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <TextField
-                        sx={{ width: '95%', my: 1 }}
-                        id="outlined-basic"
-                        label="product Name"
-                        name="name"
-                        variant="outlined"
-                    />
-                    <TextField
-                        sx={{ width: '95%', my: 1 }}
-                        id="outlined-basic"
-                        label="description"
-                        name="description"
-                        variant="outlined"
-                    />
-                    <TextField
-                        sx={{ width: '95%', my: 1 }}
-                        id="outlined-basic"
-                        label="price"
-                        name="price"
-                        variant="outlined"
-                    />
-                    <TextField
-                        sx={{ width: '95%', my: 1 }}
-                        id="outlined-basic"
-                        label="Image Link"
-                        name="img"
-                        variant="outlined"
-                    />
+
+                    <input placeholder='Image Link' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("img", { required: true })} />
+
+                    <input placeholder='Course Name' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("courseName", { required: true })} />
+
+                    <input placeholder='Lessons' type="number" style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("lessons", { required: true })} />
+
+                    <input placeholder='Duration' type="number" style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("duration", { required: true })} />
+
+                    <input placeholder='Course Level' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("courseLevel", { required: true })} />
+
+                    <input placeholder='Language' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("language", { required: true })} />
+
+                    <input placeholder='Rating' type="number" style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("rating", { required: true })} />
+
+                    <input placeholder='Rated people' type="number" style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("ratedBy", { required: true })} />
+
+                    <input placeholder='Course Title' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("title", { required: true })} />
+
+                    <input placeholder='Instructor Name' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("instructorName", { required: true })} />
+
+                    <input placeholder='Instructor Image' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("instructorImg", { required: true })} />
+
+                    <input placeholder=' Previous Price' type="number" style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("previousPrice", { required: true })} />
+
+                    <input placeholder=' New Price' type="number" style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("newPrice", { required: true })} />
+
+                    <input placeholder=' Description' style={{ width: '48%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("description", { required: true })} />
+
+
                     <Button
-                        sx={{ width: '95%', my: 2, bgcolor: 'text.primary' }}
+                        sx={{ width: '48%', marginTop: 10, my: 2, bgcolor: 'text.primary' }}
                         type="submit"
                         size="large"
                         variant="contained">
