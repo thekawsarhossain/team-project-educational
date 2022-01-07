@@ -1,0 +1,51 @@
+body{
+  font-family: sans-serif;
+}
+.hero{
+  background-color:#EDEEF3 ;
+}
+.hero-section{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 70px;
+}
+
+.hero-1{
+  text-align: start;
+ 
+}
+.hero-1 span{
+  font-weight: 400;
+}
+.hero-1 h1{
+  font-size: 2.6rem;
+  font-weight: 800;
+}
+.hero-1 p{
+  font-size: 18px;
+  line-height: 30px;
+}
+.hero-1 button{
+  background-color: #274BFF;
+  border: 0;
+  padding: 15px 30px;
+  font-size: 15px;
+  color: white;
+  border-radius: 5px;
+ 
+}
+
+.hero-1 button:hover{
+color: black;
+}
+.hero-2 img{
+width: 120%;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-2 img{
+    width: 100%;
+    }
+}
