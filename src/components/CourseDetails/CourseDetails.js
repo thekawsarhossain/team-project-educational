@@ -1,12 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Box, Grid } from '@mui/material'
+import { CircularProgress } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Rating from 'react-rating';
 import './CourseDetails.css'
 const CourseDetails = () => {
 
   const courseDetails = useSelector(state => state.courses.courseDetails);
+  const status = useSelector(state => state.courses.status);
+  console.log(status)
+
+  if (status === 'pending') {
+    return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+  }
 
   return (
     <div>
