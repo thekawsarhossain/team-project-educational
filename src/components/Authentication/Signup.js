@@ -3,7 +3,6 @@ import { Box } from '@mui/system';
 import Button from '@mui/material/Button';
 import React from 'react';
 import { useForm } from "react-hook-form";
-import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useHistory } from 'react-router-dom';
 import Container from '@mui/material/Container';
@@ -13,7 +12,7 @@ import useAuth from '../../hooks/useAuth';
 const Signup = () => {
 
     // useAuth custom hook here 
-    const { createUser, error, signInWithGoogle, signInWithFacebook } = useAuth();
+    const { createUser, error, signInWithGoogle } = useAuth();
     // react hook here 
     const history = useHistory();
 
@@ -31,7 +30,7 @@ const Signup = () => {
 
     // handle signup btn function here 
     const handleLogin = () => {
-        history('/login');
+        history.push('/login');
     }
 
     // main function here
@@ -39,7 +38,7 @@ const Signup = () => {
         <Container sx={{ my: 8 }}>
             <Paper variant="outlined" sx={{ width: { md: '80%', sm: '100%', lg: '40%' }, m: 'auto', p: 2, mb: 1 }}>
                 <Typography variant="h4" gutterBottom component="div" sx={{ fontWeight: 'bold', fontStyle: 'italic' }}>
-                    <span className="title">Amateur Photographers</span>
+                    <span className="title">Please Login</span>
                 </Typography>
                 <Box>
 
@@ -54,8 +53,7 @@ const Signup = () => {
                         {/* login with other section here  */}
                         <span className="or">OR</span>
                         <Box>
-                            <Button onClick={() => signInWithFacebook(history)} variant="text"><FacebookIcon /> <span className="mt-1"> Facebook</span> </Button>
-                            <Button onClick={() => signInWithGoogle(history)} variant="text"><GoogleIcon /> <span className="mt-1"> Google</span> </Button>
+                            <Button onClick={() => signInWithGoogle(history)} variant="text"><GoogleIcon /> <span> Google</span> </Button>
                         </Box>
                     </form>
 

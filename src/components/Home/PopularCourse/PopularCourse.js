@@ -24,7 +24,7 @@ const PopularCourse = () => {
                 Our
                 <span>
                   Popular
-                  <img src="https://www.devsnews.com/wp/educal/wp-content/themes/educal/assets/img/shape/yellow-bg.png" alt="" srcset="" />
+                  <img src="https://www.devsnews.com/wp/educal/wp-content/themes/educal/assets/img/shape/yellow-bg.png" alt="" />
                 </span> Courses</h1>
             </div>
             <div className="p-info">

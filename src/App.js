@@ -11,39 +11,32 @@ import Contact from './components/Contact/Contact';
 import Navigation from './components/Shared/Navigation/Navigation';
 import CourseDetails from './components/CourseDetails/CourseDetails';
 import EventDetails from './components/Home/Event/EventDetails/EventDetails';
+import AuthProvider from './context/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Footer from './components/Shared/Footer/Footer';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navigation />
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/home'>
-            <Home />
-          </Route>
-          <Route path='/courses'>
-            <AllCourses />
-          </Route>
-          <Route path='/course/:id'>
-            <CourseDetails />
-          </Route>
-          <Route path='/event/:id'>
-            <EventDetails />
-          </Route>
-          <Route path='/blogs'>
-            <Blogs />
-          </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/contact'>
-            <Contact />
-          </Route>
-        </Switch>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Navigation />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/home' component={Home} />
+            <Route path='/courses' component={AllCourses} />
+            <Route path='/blogs' component={Blogs} />
+            <Route path='/about' component={About} />
+            <Route path='/contact' component={Contact} />
+            <PrivateRoute path='/course/:id' component={CourseDetails} />
+            <PrivateRoute path='/event/:id' component={EventDetails} />
+            <PrivateRoute path='/dashboard' component={Dashboard} />
+            <PrivateRoute path='/login' component={Login} />
+            <PrivateRoute path='/signup' component={Signup} />
+          </Switch>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

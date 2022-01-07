@@ -57,24 +57,24 @@ const CourseDetails = () => {
               <div className='details-2'>
                 <h1>${courseDetails.newPrice}
                   <span><del>{courseDetails.previousPrice}</del></span></h1>
-                <li><i class="fas fa-home"></i> Instructor : <span>{courseDetails.instructorName}</span></li>
-                <li><i class="fas fa-book"></i> Lectures : <span>{courseDetails.lessons}</span></li>
-                <li><i class="far fa-clock"></i> Duration : <span>11h 21m 30s</span></li>
-                <li><i class="far fa-user"></i> Enrolled : <span>3 student</span></li>
-                <li><i class="fas fa-tag"></i> Course level : <span>Intermediate</span></li>
-                <li><i class="fas fa-globe"></i> Language : <span>English</span></li>
+                <li><i className="fas fa-home"></i> Instructor : <span>{courseDetails.instructorName}</span></li>
+                <li><i className="fas fa-book"></i> Lectures : <span>{courseDetails.lessons}</span></li>
+                <li><i className="far fa-clock"></i> Duration : <span>11h 21m 30s</span></li>
+                <li><i className="far fa-user"></i> Enrolled : <span>3 student</span></li>
+                <li><i className="fas fa-tag"></i> Course level : <span>Intermediate</span></li>
+                <li><i className="fas fa-globe"></i> Language : <span>English</span></li>
 
                 <Link to='/#'>
                   <button>Add To Cart</button>
                 </Link>
-              </div>
-            </Grid>
+              </div >
+            </Grid >
 
-          </Grid>
-        </Box>
-      </Container>
+          </Grid >
+        </Box >
+      </Container >
 
-    </div>
+    </div >
   );
 };
 

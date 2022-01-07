@@ -19,9 +19,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import HomeIcon from '@mui/icons-material/Home';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-// import PaymentsIcon from '@mui/icons-material/Payments';
 import ReviewsIcon from '@mui/icons-material/Reviews';
-import useAuth from '../../Hooks/useAuth';
 import { Link, useRouteMatch, Switch, Route } from 'react-router-dom';
 import Profile from './Profile/Profile';
 import MyOrders from './MyOrders/MyOrders';
@@ -36,6 +34,7 @@ import ManageOrders from './ManageOrders/ManageOrders';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AdminRoute from '../AdminRoute/AdminRoute';
+import useAuth from '../../hooks/useAuth';
 
 
 const drawerWidth = 240;

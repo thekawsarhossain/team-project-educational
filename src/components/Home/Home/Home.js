@@ -4,19 +4,19 @@ import CourseSlider from "../CourseSlider/CourseSlider";
 import Event from "../Event/Event";
 import OnlineCourse from "../OnlineCourse/OnlineCourse";
 import PopularCourse from "../PopularCourse/PopularCourse";
+import FooterBanner from '../FooterBanner/FooterBanner';
 import Pricing from "../Pricing/Pricing";
-import Footer from '../../Shared/Footer/Footer';
 import Banner from "../Banner/Banner";
 
 const Home = () => {
   return <Box>
-    <Banner/>
+    <Banner />
     <PopularCourse />
     <CourseSlider />
     <OnlineCourse />
     <Event />
     <Pricing />
-    <Footer />
+    <FooterBanner />
   </Box>;
 };
 
