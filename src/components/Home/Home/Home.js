@@ -7,9 +7,12 @@ import PopularCourse from "../PopularCourse/PopularCourse";
 import FooterBanner from '../FooterBanner/FooterBanner';
 import Pricing from "../Pricing/Pricing";
 import Banner from "../Banner/Banner";
+import Navigation from "../../Shared/Navigation/Navigation";
+import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
   return <Box>
+    <Navigation />
     <Banner />
     <PopularCourse />
     <CourseSlider />
@@ -17,6 +20,7 @@ const Home = () => {
     <Event />
     <Pricing />
     <FooterBanner />
+    <Footer />
   </Box>;
 };
 

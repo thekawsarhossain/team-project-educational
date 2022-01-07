@@ -1,12 +1,23 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { Container, Box, Grid, Button } from '@mui/material'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Container, Box, Grid, Button, CircularProgress } from '@mui/material'
+import { useParams } from 'react-router-dom';
 const EventDetails = () => {
 
-  const eventDetails = useSelector(state => state.events.eventDetails);
-  const status = useSelector(state => state.events.status);
-  console.log(status)
+  const { id } = useParams();
+  const [eventDetails, setEventDetails] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`https://lit-lake-52047.herokuapp.com/events/${id}`)
+      .then(response => response.json())
+      .then(data => setEventDetails(data))
+      .finally(() => setLoading(false))
+  }, [id])
+
+  if (loading) {
+    return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+  }
+
 
   return (
     <Container>

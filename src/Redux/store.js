@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistedReducer } from 'redux';
 import blogSlice from './slices/blogSlice';
+import cartSlice from './slices/cartSlice';
 import courseSlice from './slices/courseSlice';
 import eventSlice from './slices/eventSlice';
 import {
@@ -21,14 +22,14 @@ const persistConfig = {
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, cartSlice)
 
 export const store = configureStore({
   reducer: {
     courses: courseSlice,
     events: eventSlice,
     blogs: blogSlice,
-    all: persistedReducer,
+     cart: persistedReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: {
