@@ -1,45 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./Contact.css";
 import { Container, Grid, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import emailjs from 'emailjs-com';
+// import emailjs from 'emailjs-com';
 
 const Contact = () => {
-  // email js
-  const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm('service_demr2mq', 'template_5e2nc2i', form.current, 'user_kWyRMi0g5cZ1ifRxmVWXk')
-      .then((result) => {
-        console.log(result.text);
-        alert('Message Sent !');
-      }, (error) => {
-        console.log(error.text);
-      });
-    e.target.reset();
-  }
 
   return <div>
     <Container className="contact-section">
       <Grid container spacing={3}  >
         <Grid item xs={12} md={6}>
-          <form ref={form} onSubmit={sendEmail} className="contact-from">
-            <Typography variant="h2">Get in touch</Typography>
-            <Typography variant="p">Have a question or just want to say hi? We'd love to hear from you.</Typography>
-            <div className="flex">
-              <input type="text" className="input-1" placeholder="Your Name" name="name" />
-              <input type="email" name="" className="input-1" placeholder="Your Email" name="email" />
-            </div>
-            <br />
+          <Typography variant="h2">Get in touch</Typography>
+          <Typography variant="p">Have a question or just want to say hi? We'd love to hear from you.</Typography>
+          <div className="flex">
+            <input type="text" className="input-1" placeholder="Your Name" name="name" />
+            <input type="email" name="" className="input-1" placeholder="Your Email" name="email" />
+          </div>
+          <br />
 
-            <input type="text" name="" id="" className="input-2" placeholder="Subject" name="subject" />
-            <textarea name="" id="" cols="30" rows="12" placeholder="Write Your Massage" name="message"></textarea>
-            <Link to='/'>
-              <button type="submit">Send Your Massage</button>
-            </Link>
-          </form>
+          <input type="text" name="" id="" className="input-2" placeholder="Subject" name="subject" />
+          <textarea name="" id="" cols="30" rows="12" placeholder="Write Your Massage" name="message"></textarea>
+          <Link to='/'>
+            <button type="submit">Send Your Massage</button>
+          </Link>
         </Grid>
         <Grid item xs={12} md={6} sx={{ mt: 4 }}>
           <div className="address-info">
