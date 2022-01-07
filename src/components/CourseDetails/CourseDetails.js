@@ -1,6 +1,3 @@
-import { useSelector } from 'react-redux';
-import { Container, Box, Grid } from '@mui/material'
-import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Container, Box, Grid, CircularProgress } from '@mui/material'
 import { Link } from 'react-router-dom';
@@ -28,6 +25,7 @@ const CourseDetails = () => {
   if (loading) {
     return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
   }
+
 
   return (
     <div>
