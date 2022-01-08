@@ -5,7 +5,6 @@ import Navigation from "../Shared/Navigation/Navigation";
 import Footer from "../Shared/Footer/Footer";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
-import { toast } from "react-toastify";
 
 const Contact = () => {
 
@@ -22,7 +21,7 @@ const Contact = () => {
       .then(response => response.json())
       .then(result => {
         if (result.insertedId) {
-          toast.success("successfully send message!!");
+          console.log('done')
         }
       })
     reset();

@@ -1,6 +1,5 @@
 import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
 
 const MakeAdmin = () => {
 
@@ -20,7 +19,7 @@ const MakeAdmin = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.acknowledged) {
-                    toast.success("successfully maked admin!!");
+                    console.log('done')
                 }
             })
     }

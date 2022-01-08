@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import blogSlice from './slices/blogSlice';
-import cartSlice from './slices/cartSlice';
 import courseSlice from './slices/courseSlice';
 import eventSlice from './slices/eventSlice';
 import messagesSlice from './slices/messagesSlice';
+import ordersSlice from './slices/ordersSlice';
 import reviewSlice from './slices/reviewSlice';
+
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,6 @@ export const store = configureStore({
     blogs: blogSlice,
     messages: messagesSlice,
     reviews: reviewSlice,
-    cart: cartSlice,
+    orders: ordersSlice,
   },
 });

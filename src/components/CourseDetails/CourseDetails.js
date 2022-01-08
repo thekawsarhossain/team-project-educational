@@ -1,17 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import Rating from 'react-rating';
+import { useForm } from "react-hook-form";
 import './CourseDetails.css'
 import { useHistory, useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 import { Box, CircularProgress, Container, Grid } from '@mui/material';
 import Navigation from '../Shared/Navigation/Navigation';
 import Footer from '../Shared/Footer/Footer';
-import { addToCart } from '../../Redux/slices/cartSlice';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import useAuth from '../../hooks/useAuth';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 
 const CourseDetails = () => {
 
-  const dispatch = useDispatch();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const history = useHistory();
+  const { user } = useAuth();
 
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
@@ -24,15 +44,29 @@ const CourseDetails = () => {
       .finally(() => setLoading(false))
   })
 
-  const handleCourse = () => {
-    dispatch(addToCart(courseDetails));
-    history.push('/dashboard/cart');
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const onSubmit = data => {
+    data.date = new Date().toLocaleDateString();
+    data.email = user.email;
+    fetch('http://localhost:8000/orders', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.insertedId) {
+          console.log('done')
+        }
+      })
   }
+
 
   if (loading) {
     return <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
   }
-
 
   return (<div>
     <Navigation />
@@ -84,13 +118,37 @@ const CourseDetails = () => {
               <li><i className="far fa-clock"></i> Duration : <span>11h 21m 30s</span></li>
               <li><i className="fas fa-tag"></i> Course level : <span>Intermediate</span></li>
               <li><i className="fas fa-globe"></i> Language : <span>English</span></li>
-
-              <button onClick={handleCourse}>Add To Cart</button>
+              <Button onClick={handleOpen}>Open modal</Button>
             </div >
           </Grid >
 
         </Grid >
       </Box >
+
+      {/* modal info  */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h5" component="h2" sx={{ textAlign: 'center' }}>
+            Book Course Here
+          </Typography>
+          <form onSubmit={handleSubmit(onSubmit)}>
+
+            <input defaultValue={user.displayName} placeholder='Name' style={{ width: '90%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("name", { required: true })} />
+
+            <input type="number" placeholder='Number' style={{ width: '90%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("number", { required: true })} />
+
+            <input placeholder='Address' style={{ width: '90%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("address", { required: true })} />
+
+            <Button type="submit" variant='contained' sx={{ display: 'block', my: 2, mx: 'auto' }}>Enroll</Button>
+          </form>
+        </Box>
+      </Modal>
+
     </Container >
     <Footer />
   </div >);

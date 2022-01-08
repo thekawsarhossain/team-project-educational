@@ -2,7 +2,6 @@
 import { Button, CircularProgress, Container, Rating, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
 import useAuth from '../../../hooks/useAuth';
 
 
@@ -35,7 +34,7 @@ const GiveReview = () => {
             .then(result => {
                 if (result.insertedId) {
                     setLoading(false);
-                    toast.success("successfully added review!!");
+                    console.log('done')
                 }
             })
     }

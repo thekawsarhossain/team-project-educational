@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navigation.css";
-import { Badge } from "@mui/material";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,24 +13,9 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import { useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
-import { styled } from '@mui/material/styles';
-import { useSelector } from "react-redux";
 
-
-// badge stylesheet 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    left: 0,
-    top: -5,
-    border: `3px solid ${theme.palette.background.paper}`,
-    padding: '4px 20px',
-    backgroundColor: '#2B4EFF',
-  },
-}));
 
 const Navigation = () => {
-
-  const cart = useSelector(state => state.cart.cart)
 
   // user info here 
   const { user, logoutUser } = useAuth();
@@ -103,7 +87,6 @@ const Navigation = () => {
             <Button onClick={() => history.push('/courses')}>Courses</Button>
             <Button onClick={() => history.push('/blogs')}>Blog</Button>
             <Button onClick={() => history.push('/reviews')}>Reviews</Button>
-            <StyledBadge badgeContent={cart.length} color="secondary"></StyledBadge>
             <Button onClick={() => history.push('/dashboard/cart')}>Cart</Button>
             <Button onClick={() => history.push('/about')}>About us</Button>
             <Button onClick={() => history.push('/contact')}>Contact</Button>
@@ -122,7 +105,6 @@ const Navigation = () => {
           <Button onClick={() => history.push('/courses')}>Courses</Button>
           <Button onClick={() => history.push('/blogs')}>Blog</Button>
           <Button onClick={() => history.push('/reviews')}>Reviews</Button>
-          <StyledBadge badgeContent={cart.length} color="secondary"></StyledBadge>
           <Button onClick={() => history.push('/dashboard/cart')}>Cart</Button>
           <Button onClick={() => history.push('/about')}>About us</Button>
           <Button onClick={() => history.push('/contact')}>Contact</Button>

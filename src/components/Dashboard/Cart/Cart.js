@@ -6,19 +6,21 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import useAuth from '../../../hooks/useAuth';
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeToCart } from '../../../Redux/slices/cartSlice';
+import { fetchOrders } from '../../../Redux/slices/ordersSlice';
 
 
 
 const Cart = () => {
 
     const dispatch = useDispatch();
-    const { user } = useAuth();
-    const cartData = useSelector(state => state.cart.cart);
-    console.log(cartData)
+    useEffect(() => {
+        dispatch(fetchOrders())
+    }, [dispatch])
+
+    const orders = useSelector(state => state.courses.courses)
+    console.log(orders)
 
     return (
         <>
@@ -36,12 +38,14 @@ const Cart = () => {
                     </TableHead>
                     <TableBody>
                         {
-                            cartData.map(data => <TableRow>
-                                <TableCell style={{ width: '25%' }} align="left"> <img style={{ width: '50%' }} src={data?.img} alt="courseImg" /> </TableCell>
-                                <TableCell align="left">{data?.courseName}</TableCell>
-                                <TableCell align="left">{data?.duration}</TableCell>
-                                <TableCell align="left">${data?.newPrice}</TableCell>
-                                <TableCell align="left"><Button onClick={() => dispatch(removeToCart(data._id))}>Remove</Button></TableCell>
+                            orders.map(order => <TableRow>
+                                <TableCell style={{ width: '25%' }} align="left"> <img style={{ width: '50%' }} src={order?.img} alt="courseImg" /> </TableCell>
+                                <TableCell align="left">{order?.courseName}</TableCell>
+                                <TableCell align="left">{order?.duration}</TableCell>
+                                <TableCell align="left">${order?.newPrice}</TableCell>
+                                <TableCell align="left">
+                                    {/* <Button onClick={() => dispatch(removeToCart(order._id))}>Remove</Button> */}
+                                </TableCell>
                             </TableRow>)
                         }
                     </TableBody>
