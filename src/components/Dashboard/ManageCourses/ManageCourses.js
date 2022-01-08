@@ -46,7 +46,7 @@ const ManageCourses = () => {
                     </TableHead>
                     <TableBody>
                         {
-                            loading === 'pending' ? <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box> :
+                            loading === 'pending' ? <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box> :
                                 courses.map(course => <ManageCourse
                                     key={course._id}
                                     courses={course}

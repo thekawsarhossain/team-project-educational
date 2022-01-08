@@ -5,6 +5,7 @@ import Navigation from "../Shared/Navigation/Navigation";
 import Footer from "../Shared/Footer/Footer";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Contact = () => {
 
@@ -13,7 +14,7 @@ const Contact = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = data => {
     data.date = new Date().toLocaleDateString();
-    fetch('http://localhost:8000/messages', {
+    fetch('https://lit-lake-52047.herokuapp.com/messages', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data)
@@ -21,9 +22,7 @@ const Contact = () => {
       .then(response => response.json())
       .then(result => {
         if (result.insertedId) {
-          <Alert>
-            Successfull !
-          </Alert>
+          toast.success("successfully send message!!");
         }
       })
     reset();

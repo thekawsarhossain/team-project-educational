@@ -30,7 +30,7 @@ const Messages = () => {
 
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {
-                    loading === 'pending' ? <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+                    loading === 'pending' ? <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
                         : messages.map(message => <Grid item xs={6} sm={4} md={4} key={message._id}>
                             <Card sx={{ minWidth: 275, textAlign: 'start' }}>
                                 <CardContent>

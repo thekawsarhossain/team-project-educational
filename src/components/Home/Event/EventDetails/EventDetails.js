@@ -17,7 +17,7 @@ const EventDetails = () => {
   }, [id])
 
   if (loading) {
-    return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+    return <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
   }
 
 

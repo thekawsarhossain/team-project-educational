@@ -7,10 +7,10 @@ import spinner from '../../images/ZhKG.gif';
 
 
 const AdminRoute = ({ children, ...rest }) => {
-    let { user, admin } =useAuth();
+    let { user, admin } = useAuth();
 
     if (!admin) {
-        return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+        return <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
     }
 
     return (

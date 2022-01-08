@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchMessages = createAsyncThunk(
     'messages/fetchMessages',
     async () => {
-        const response = await fetch('http://localhost:8000/messages')
+        const response = await fetch('https://lit-lake-52047.herokuapp.com/messages')
             .then(res => res.json())
         return response
     }

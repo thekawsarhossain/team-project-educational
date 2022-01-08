@@ -11,8 +11,8 @@ export const store = configureStore({
     courses: courseSlice,
     events: eventSlice,
     blogs: blogSlice,
-    cart: cartSlice,
     messages: messagesSlice,
-    reviews: reviewSlice
+    reviews: reviewSlice,
+    cart: cartSlice,
   },
 });

@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchReviews = createAsyncThunk(
     'review/fetchReviews',
     async () => {
-        const response = await fetch('http://localhost:8000/reviews')
+        const response = await fetch('https://lit-lake-52047.herokuapp.com/reviews')
             .then(res => res.json())
         return response
     }

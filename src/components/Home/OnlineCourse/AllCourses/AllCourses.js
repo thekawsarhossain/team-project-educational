@@ -1,4 +1,4 @@
-import { Avatar, Button, Container, Divider, Grid } from '@mui/material';
+import { Avatar, Button, CircularProgress, Container, Divider, Grid } from '@mui/material';
 import React from 'react';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
@@ -16,6 +16,7 @@ const AllCourses = () => {
 
     // getting data from redux 
     const allCourses = useSelector((state) => state.courses.allCourses);
+    const loading = useSelector(state => state.courses.status)
     const courses = allCourses.slice(0, 6)
 
     const history = useHistory();
@@ -24,7 +25,7 @@ const AllCourses = () => {
     return (
         <Container sx={{ my: 6 }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }} >
-                {
+                {loading === 'pending' ? <Box style={{ width: '100%', height: '10vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box> :
                     courses.map(course => <Grid item xs={12} sm={6} md={4} key={course._id} >
                         <Card sx={{ width: '100%', boxShadow: 1 }}>
                             <CardActionArea>

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Rating from 'react-rating';
 import './CourseDetails.css'
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../Redux/slices/cartSlice';
 import { Box, CircularProgress, Container, Grid } from '@mui/material';
 import Navigation from '../Shared/Navigation/Navigation';
 import Footer from '../Shared/Footer/Footer';
+import { addToCart } from '../../Redux/slices/cartSlice';
 
 const CourseDetails = () => {
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const { id } = useParams();
   const [courseDetails, setCourseDetails] = useState({});
@@ -24,8 +24,13 @@ const CourseDetails = () => {
       .finally(() => setLoading(false))
   })
 
+  const handleCourse = () => {
+    dispatch(addToCart(courseDetails));
+    history.push('/dashboard/cart');
+  }
+
   if (loading) {
-    return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+    return <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
   }
 
 
@@ -80,9 +85,7 @@ const CourseDetails = () => {
               <li><i className="fas fa-tag"></i> Course level : <span>Intermediate</span></li>
               <li><i className="fas fa-globe"></i> Language : <span>English</span></li>
 
-              <Link to='/#'>
-                <button onClick={() => dispatch(addToCart(courseDetails))}>Add To Cart</button>
-              </Link>
+              <button onClick={handleCourse}>Add To Cart</button>
             </div >
           </Grid >
 

@@ -12,18 +12,18 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
 const cartSlice = createSlice({
-    name: 'cart',
+    name: 'courses',
     initialState: {
         cart: [],
-        status: 'idle'
+        // status: 'idle'
     },
     reducers: {
         addToCart: (state, action) => {
             state.cart.push(action.payload)
         },
-        removeToCart: (state, action) => {
-            state.cart = state.cart.filter(course => course.id !== action.payload)
-        }
+        removeToCart: (state, { payload }) => {
+            state.cart = state.cart.filter(data => data._id !== payload.id);
+        },
     },
     // extraReducers: (builder) => {
     //     builder.addCase(fetchCourses.fulfilled, (state, action) => {

@@ -2,6 +2,7 @@
 import { Button, CircularProgress, Container, Rating, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 import useAuth from '../../../hooks/useAuth';
 
 
@@ -25,7 +26,7 @@ const GiveReview = () => {
     // handle review function
     const handleReview = () => {
         setLoading(true)
-        fetch('http://localhost:8000/reviews', {
+        fetch('https://lit-lake-52047.herokuapp.com/reviews', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(review)
@@ -34,12 +35,13 @@ const GiveReview = () => {
             .then(result => {
                 if (result.insertedId) {
                     setLoading(false);
+                    toast.success("successfully added review!!");
                 }
             })
     }
 
     if (loading) {
-        return <Box style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
+        return <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box>
     }
 
     return (

@@ -18,7 +18,7 @@ const courseSlice = createSlice({
         status: 'idle'
     },
     reducers: {
-        removeFormReadingList: (state, { payload }) => {
+        removeFromList: (state, { payload }) => {
             state.allCourses = state.allCourses.filter(course => course._id !== payload.id);
         },
     },
@@ -33,5 +33,5 @@ const courseSlice = createSlice({
     },
 });
 
-export const { removeToCart } = courseSlice.actions;
+export const { removeFromList } = courseSlice.actions;
 export default courseSlice.reducer;

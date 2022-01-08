@@ -4,7 +4,7 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { removeToCart } from '../../../../Redux/slices/cartSlice';
+import { fetchCourses, removeFromList } from '../../../../Redux/slices/courseSlice';
 
 const ManageCourse = ({ courses }) => {
 
@@ -16,14 +16,15 @@ const ManageCourse = ({ courses }) => {
         const procced = window.confirm('Are you sure you want DELETE ?')
 
         if (procced) {
-            fetch(`http://localhost:8000/course/${id}`, {
+            fetch(`https://lit-lake-52047.herokuapp.com/course/${id}`, {
                 method: 'DELETE',
                 header: { 'content-type': 'application/json' }
             })
                 .then(response => response.json())
                 .then(result => {
                     if (result.deletedCount) {
-                        dispatch(removeToCart(id))
+                        dispatch(removeFromList(id))
+                        dispatch(fetchCourses())
                     }
                 })
         }

@@ -27,7 +27,7 @@ import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 import useAuth from '../../hooks/useAuth';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
-import MyOrders from './MyOrders/MyOrders';
+import EmailIcon from '@mui/icons-material/Email';
 import Payment from './Payment/Payment';
 import GiveReview from './GiveReview/GiveReview';
 import AddProducts from './AddProducts/AddProducts';
@@ -38,6 +38,7 @@ import AddCourses from './AddCourses/AddCourses';
 import manageCourses from './ManageCourses/ManageCourses';
 import Messages from './Messages/Messages';
 import ManageCourses from './ManageCourses/ManageCourses';
+import Cart from './Cart/Cart';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -171,7 +172,7 @@ const Dashboard = () => {
                             <ListItemText primary="Profile" />
                         </ListItem>
                     </Link>
-                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/my-orders`}>
+                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/cart`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<ShoppingCartIcon />}
@@ -213,30 +214,22 @@ const Dashboard = () => {
                             <ListItemIcon>
                                 {<FileCopyIcon />}
                             </ListItemIcon>
-                            <ListItemText primary="Manage orders" />
+                            <ListItemText primary="Manage Courses" />
                         </ListItem>
                     </Link>
                     <List>
-                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-products`}>
+                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-orders`}>
                             <ListItem button>
                                 <ListItemIcon>
                                     {<AutoAwesomeMotionIcon />}
                                 </ListItemIcon>
-                                <ListItemText primary="Manage courses" />
-                            </ListItem>
-                        </Link>
-                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-products`}>
-                            <ListItem button>
-                                <ListItemIcon>
-                                    {<AutoAwesomeMotionIcon />}
-                                </ListItemIcon>
-                                <ListItemText primary="Manage Event" />
+                                <ListItemText primary="Manage orders" />
                             </ListItem>
                         </Link>
                         <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/messages`}>
                             <ListItem button>
                                 <ListItemIcon>
-                                    {<AutoAwesomeMotionIcon />}
+                                    {<EmailIcon />}
                                 </ListItemIcon>
                                 <ListItemText primary="Messages" />
                             </ListItem>
@@ -264,9 +257,9 @@ const Dashboard = () => {
                     <Route path={`${path}/profile`}>
                         <Profile />
                     </Route>
-                    {/* <Route path={`${path}/my-orders`}>
-                        <MyOrders />
-                    </Route>
+                    <Route path={`${path}/cart`}>
+                        <Cart />
+                    </Route> {/* 
                     <Route path={`${path}/payment/:Id`}>
                         <Payment />
                     </Route>  */}
