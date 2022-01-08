@@ -13,6 +13,7 @@ import { Box } from '@mui/system';
 import { useHistory } from 'react-router-dom';
 
 const AllCourses = () => {
+
     // getting data from redux 
     const courses = useSelector((state) => state.courses.allCourses);
 

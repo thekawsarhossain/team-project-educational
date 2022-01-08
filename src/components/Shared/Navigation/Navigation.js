@@ -100,7 +100,6 @@ const Navigation = () => {
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
           <Button onClick={() => history.push('/')}>Home</Button>
-          <Button onClick={() => history.push('/courses')}>Courses</Button>
           <Button onClick={() => history.push('/blogs')}>Blog</Button>
           <Button onClick={() => history.push('/about')}>About us</Button>
           <Button onClick={() => history.push('/contact')}>Contact</Button>

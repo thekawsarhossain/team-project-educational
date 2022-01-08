@@ -10,7 +10,8 @@ const AddCourses = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data)
+        data.addedby = user.displayName;
+        data.date = new Date().toLocaleDateString();
         fetch('https://lit-lake-52047.herokuapp.com/all-courses', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },

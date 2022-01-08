@@ -25,11 +25,11 @@ function App() {
             <Route path='/blogs' component={Blogs} />
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
-            <PrivateRoute path='/course/:id' component={CourseDetails} />
-            <PrivateRoute path='/event/:id' component={EventDetails} />
-            <PrivateRoute path='/dashboard' component={Dashboard} />
-            <PrivateRoute path='/login' component={Login} />
-            <PrivateRoute path='/signup' component={Signup} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup} />
+            <PrivateRoute path='/course/:id'> <CourseDetails /> </PrivateRoute>
+            <PrivateRoute path='/event/:id'> <EventDetails /> </PrivateRoute>
+            <PrivateRoute path='/dashboard'> <Dashboard /> </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>
