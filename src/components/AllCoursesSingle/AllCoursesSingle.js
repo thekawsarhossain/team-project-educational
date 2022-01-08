@@ -11,17 +11,18 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Box } from '@mui/system';
 import { useHistory } from 'react-router-dom';
+import Navigation from '../Shared/Navigation/Navigation';
+import Footer from '../Shared/Footer/Footer';
 
-const AllCourses = () => {
+const AllCoursesSingle = () => {
 
     // getting data from redux 
-    const allCourses = useSelector((state) => state.courses.allCourses);
-    const courses = allCourses.slice(0, 6)
+    const courses = useSelector((state) => state.courses.allCourses);
 
     const history = useHistory();
 
-
-    return (
+    return (<>
+        <Navigation />
         <Container sx={{ my: 6 }}>
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }} >
                 {
@@ -75,7 +76,9 @@ const AllCourses = () => {
                 }
             </Grid>
         </Container>
+        <Footer />
+    </>
     );
 };
 
-export default AllCourses;  
+export default AllCoursesSingle;  

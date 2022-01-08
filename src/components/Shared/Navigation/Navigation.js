@@ -86,6 +86,7 @@ const Navigation = () => {
             <Button onClick={() => history.push('/')}>Home</Button>
             <Button onClick={() => history.push('/courses')}>Courses</Button>
             <Button onClick={() => history.push('/blogs')}>Blog</Button>
+            <Button onClick={() => history.push('/reviews')}>Reviews</Button>
             <Button onClick={() => history.push('/about')}>About us</Button>
             <Button onClick={() => history.push('/contact')}>Contact</Button>
           </Menu>
@@ -102,6 +103,7 @@ const Navigation = () => {
           <Button onClick={() => history.push('/')}>Home</Button>
           <Button onClick={() => history.push('/courses')}>Courses</Button>
           <Button onClick={() => history.push('/blogs')}>Blog</Button>
+          <Button onClick={() => history.push('/reviews')}>Reviews</Button>
           <Button onClick={() => history.push('/about')}>About us</Button>
           <Button onClick={() => history.push('/contact')}>Contact</Button>
         </Box>

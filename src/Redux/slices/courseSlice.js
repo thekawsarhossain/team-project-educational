@@ -15,11 +15,12 @@ const courseSlice = createSlice({
     name: 'courses',
     initialState: {
         allCourses: [],
-        courseDetails: {},
         status: 'idle'
     },
     reducers: {
-
+        removeFormReadingList: (state, { payload }) => {
+            state.allCourses = state.allCourses.filter(course => course._id !== payload.id);
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCourses.fulfilled, (state, action) => {
@@ -32,4 +33,5 @@ const courseSlice = createSlice({
     },
 });
 
+export const { removeToCart } = courseSlice.actions;
 export default courseSlice.reducer;

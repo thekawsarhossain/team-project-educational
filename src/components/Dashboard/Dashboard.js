@@ -30,14 +30,15 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MyOrders from './MyOrders/MyOrders';
 import Payment from './Payment/Payment';
 import GiveReview from './GiveReview/GiveReview';
-import ManageProducts from './ManageProducts/ManageProducts';
 import AddProducts from './AddProducts/AddProducts';
 import ManageOrders from './ManageOrders/ManageOrders';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import AddCourses from './AddCourses/AddCourses';
+import manageCourses from './ManageCourses/ManageCourses';
+import Messages from './Messages/Messages';
+import ManageCourses from './ManageCourses/ManageCourses';
 
-const admin = true;
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -119,7 +120,7 @@ const Dashboard = () => {
     };
 
     // getting user data from context api here 
-    const { user, logoutUser } = useAuth();
+    const { user, logoutUser, admin } = useAuth();
 
     // nesting router hook here 
     let { path, url } = useRouteMatch();
@@ -190,7 +191,7 @@ const Dashboard = () => {
                 <Divider />
                 {admin && <Box>
                     <List>
-                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/add-products`}>
+                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/add-courses`}>
                             <ListItem button>
                                 <ListItemIcon>
                                     {<AddIcon />}
@@ -207,7 +208,7 @@ const Dashboard = () => {
                             </ListItem>
                         </Link>
                     </List>
-                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-orders`}>
+                    <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/manage-courses`}>
                         <ListItem button>
                             <ListItemIcon>
                                 {<FileCopyIcon />}
@@ -230,6 +231,14 @@ const Dashboard = () => {
                                     {<AutoAwesomeMotionIcon />}
                                 </ListItemIcon>
                                 <ListItemText primary="Manage Event" />
+                            </ListItem>
+                        </Link>
+                        <Link style={{ textDecoration: "none", color: '#000' }} to={`${url}/messages`}>
+                            <ListItem button>
+                                <ListItemIcon>
+                                    {<AutoAwesomeMotionIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary="Messages" />
                             </ListItem>
                         </Link>
                     </List>
@@ -260,16 +269,19 @@ const Dashboard = () => {
                     </Route>
                     <Route path={`${path}/payment/:Id`}>
                         <Payment />
-                    </Route>
+                    </Route>  */}
                     <Route path={`${path}/give-review`}>
                         <GiveReview />
-                    </Route> */}
-                    <AdminRoute path={`${path}/add-products`}>
+                    </Route>
+                    <AdminRoute path={`${path}/add-courses`}>
                         <AddCourses />
-                    </AdminRoute> {/* 
-                    <AdminRoute path={`${path}/manage-products`}>
-                        <ManageProducts />
                     </AdminRoute>
+                    <AdminRoute path={`${path}/manage-courses`}>
+                        <ManageCourses />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/messages`}>
+                        <Messages />
+                    </AdminRoute>  {/* 
                     <AdminRoute path={`${path}/manage-orders`}>
                         <ManageOrders />
                     </AdminRoute> */}

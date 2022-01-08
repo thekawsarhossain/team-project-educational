@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Box, Grid, Button, CircularProgress } from '@mui/material'
 import { useParams } from 'react-router-dom';
+import Navigation from '../../../Shared/Navigation/Navigation';
+import Footer from '../../../Shared/Footer/Footer';
 const EventDetails = () => {
 
   const { id } = useParams();
@@ -19,7 +21,8 @@ const EventDetails = () => {
   }
 
 
-  return (
+  return (<>
+    <Navigation />
     <Container>
       <Box sx={{ width: '100%' }}>
         <Grid container
@@ -76,6 +79,8 @@ const EventDetails = () => {
         </Grid >
       </Box >
     </Container >
+    <Footer />
+  </>
   );
 };
 
