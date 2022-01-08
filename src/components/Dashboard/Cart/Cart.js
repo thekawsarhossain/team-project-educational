@@ -9,11 +9,13 @@ import Paper from '@mui/material/Paper';
 import { Box, Button, CircularProgress, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchOrders } from '../../../Redux/slices/ordersSlice';
+import useAuth from '../../../hooks/useAuth'
 
 
 
 const Cart = () => {
 
+    const { user } = useAuth();
 
     const dispatch = useDispatch();
     useEffect(() => {
@@ -22,6 +24,8 @@ const Cart = () => {
 
     const orders = useSelector(state => state.orders.orders)
     const loading = useSelector(state => state.courses.status)
+
+    const filteredOrders = orders.filter(order => order?.email === user?.email)
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want DELETE');
@@ -59,7 +63,7 @@ const Cart = () => {
                     <TableBody>
                         {
                             loading === 'pending' ? <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box> :
-                                orders?.map(order => <TableRow>
+                                filteredOrders?.map(order => <TableRow>
                                     <TableCell align="left">{order?.name}</TableCell>
                                     <TableCell align="left">{order?.address}</TableCell>
                                     <TableCell align="left">{order?.number}</TableCell>

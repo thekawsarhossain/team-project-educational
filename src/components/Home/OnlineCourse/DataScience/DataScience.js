@@ -17,8 +17,7 @@ const DataScience = () => {
     const courseType = location.pathname.split('/')[2];
 
     // getting all course here 
-    const courses = useSelector((state) => state.courses.allCourses);
-    const filteredCourse = courses.filter(course => course.courseName === courseType);
+    const courses = useSelector((state) => state.courses.allCourses); const filteredCourse = courses.filter(course => course.courseName === (courseType || 'Data Science' || 'Data science' || 'data science'));
 
     const history = useHistory();
 

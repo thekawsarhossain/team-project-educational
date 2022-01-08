@@ -1,9 +1,10 @@
-import { Button, Container } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import React from "react";
 import "./Footer.css";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Link, useHistory } from "react-router-dom";
+import logo from '../../../images/logo.png';
 const Footer = () => {
 
   const history = useHistory();
@@ -15,7 +16,10 @@ const Footer = () => {
             <Grid container spacing={2} columns={16} sx={{ paddingTop: '80px' }}>
               <Grid item xs={12} md={4}>
                 <div className="footer-item-1">
-                  <img src="https://www.devsnews.com/wp/educal/wp-content/themes/educal/assets/img/logo/logo.png" alt="" />
+                  <Typography onClick={() => history.push('/')} sx={{ ms: '-10px', display: 'flex' }}>
+                    <img style={{ width: '20%', padding: 5 }} src={logo} alt="" />
+                    <h3 className="title">Educal</h3>
+                  </Typography>
                   <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
                   <div className="footer-icon ">
                     <a target='_blank' href="https://www.facebook.com"><i className="fab fa-facebook-f"></i></a>

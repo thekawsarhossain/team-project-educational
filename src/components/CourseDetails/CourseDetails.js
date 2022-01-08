@@ -64,6 +64,7 @@ const CourseDetails = () => {
           history.push('/dashboard/cart')
         }
       })
+    reset();
   }
 
 

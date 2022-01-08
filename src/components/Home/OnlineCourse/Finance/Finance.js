@@ -19,7 +19,7 @@ const Finance = () => {
 
     // getting all course here 
     const courses = useSelector((state) => state.courses.allCourses);
-    const filteredCourse = courses.filter(course => course.courseName === courseType);
+    const filteredCourse = courses.filter(course => course.courseName.toLowerCase() === courseType);
 
     const history = useHistory();
 

@@ -18,7 +18,7 @@ const Home = () => {
     <CourseSlider />
     <OnlineCourse />
     <Event />
-    <Pricing />
+    {/* <Pricing /> */}
     <FooterBanner />
     <Footer />
   </Box>;

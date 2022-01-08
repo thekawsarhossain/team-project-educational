@@ -50,7 +50,10 @@ const Navigation = () => {
           component="div"
           sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, color: '#000' }}
         >
-          <img src={logo} alt="" />
+          <Typography onClick={() => history.push('/')} sx={{ ms: '-10px', display: 'flex' }}>
+            <img style={{ width: '10%', padding: 5 }} src={logo} alt="" />
+            <h2 className="title">Educal</h2>
+          </Typography>
         </Typography>
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -87,8 +90,7 @@ const Navigation = () => {
             <Button onClick={() => history.push('/courses')}>Courses</Button>
             {/* <Button onClick={() => history.push('/blogs')}>Blog</Button> */}
             <Button onClick={() => history.push('/reviews')}>Reviews</Button>
-            <Button onClick={() => history.push('/dashboard/cart')}>Cart</Button>
-            <Button onClick={() => history.push('/about')}>About us</Button>
+            <Button onClick={() => history.push('/about')}>About</Button>
             <Button onClick={() => history.push('/contact')}>Contact</Button>
           </Menu>
         </Box>
@@ -98,15 +100,17 @@ const Navigation = () => {
           component="div"
           sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
         >
-          <img src={logo} alt="" />
+          <Typography onClick={() => history.push('/')} sx={{ ms: '-10px', display: 'flex' }}>
+            <img style={{ width: '10%', padding: 5 }} src={logo} alt="" />
+            <h2 className="title">Educal</h2>
+          </Typography>
         </Typography>
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'flex-end' } }}>
           <Button onClick={() => history.push('/')}>Home</Button>
           <Button onClick={() => history.push('/courses')}>Courses</Button>
           {/* <Button onClick={() => history.push('/blogs')}>Blog</Button> */}
           <Button onClick={() => history.push('/reviews')}>Reviews</Button>
-          <Button onClick={() => history.push('/dashboard/cart')}>Cart</Button>
-          <Button onClick={() => history.push('/about')}>About us</Button>
+          <Button onClick={() => history.push('/about')}>About</Button>
           <Button onClick={() => history.push('/contact')}>Contact</Button>
         </Box>
 
