@@ -3,30 +3,27 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { Button } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { removeToCart } from '../../../../Redux/slices/cartSlice';
 
-const manageCourse = ({ products }) => {
+const ManageCourse = ({ courses }) => {
 
-    const { name, img, price, _id, addby } = products;
+    const dispatch = useDispatch();
 
-    const handleProduct = id => {
+    const { courseName, img, newPrice, addedby, _id, instructorName, instructorImg } = courses;
+
+    const handleCourse = id => {
         const procced = window.confirm('Are you sure you want DELETE ?')
 
         if (procced) {
-            fetch(`https://safe-tundra-13022.herokuapp.com/drone/${id}`, {
+            fetch(`http://localhost:8000/course/${id}`, {
                 method: 'DELETE',
                 header: { 'content-type': 'application/json' }
             })
                 .then(response => response.json())
                 .then(result => {
                     if (result.deletedCount) {
-                        // swal({
-                        //     title: 'Order Deleted!',
-                        //     icon: 'success',
-                        //     confirmButtonText: 'Ok'
-                        // })
-                        // setTimeout(() => {
-                        //     window.location.reload();
-                        // }, 1200);
+                        dispatch(removeToCart(id))
                     }
                 })
         }
@@ -36,12 +33,15 @@ const manageCourse = ({ products }) => {
         <>
             <TableRow>
                 <TableCell style={{ width: '25%' }} align="left"> <img style={{ width: '50%' }} src={img} alt="" /> </TableCell>
-                <TableCell align="left">{name}</TableCell>
-                <TableCell align="left">{price}</TableCell>
-                <TableCell align="left"> <Button sx={{ color: 'error.main', bgcolor: 'text.primary' }} onClick={() => handleProduct(_id)}><DeleteIcon /> </Button> </TableCell>
+                <TableCell align="left">{courseName}</TableCell>
+                <TableCell align="left">{newPrice}</TableCell>
+                <TableCell align="left">{instructorName}</TableCell>
+                <TableCell style={{ width: '12%' }} align="left"> <img style={{ width: '50%' }} src={instructorImg} alt="" /> </TableCell>
+                <TableCell align="left">{addedby}</TableCell>
+                <TableCell align="left"> <Button sx={{ color: 'error.main', bgcolor: 'text.primary' }} onClick={() => handleCourse(_id)}><DeleteIcon /> </Button> </TableCell>
             </TableRow >
         </>
     );
 };
 
-export default manageCourse;
+export default ManageCourse;

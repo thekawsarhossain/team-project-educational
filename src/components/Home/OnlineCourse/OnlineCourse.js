@@ -13,8 +13,6 @@ import DataScience from "./DataScience/DataScience";
 import Marketing from "./Marketing/Marketing";
 import LifeStyle from "./LifeStyle/LifeStyle";
 import Finance from "./Finance/Finance";
-import { fetchCourses } from "../../../Redux/slices/courseSlice";
-import { useDispatch } from "react-redux";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -30,14 +28,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const OnlineCourse = () => {
   // react router hook
   const history = useHistory();
-
-  // redux disptach hook here 
-  const dispatch = useDispatch();
-
-  // calling redux thunk to get data here 
-  useEffect(() => {
-    dispatch(fetchCourses());
-  }, [dispatch])
 
 
   return <Box sx={{ bgcolor: '#F3F4F8', py: 10, textAlign: 'start' }}>

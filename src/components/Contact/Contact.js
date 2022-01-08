@@ -45,7 +45,7 @@ const Contact = () => {
 
               <input placeholder='Subject' style={{ width: '95%', marginTop: 10, marginLeft: 10, padding: 10 }} {...register("subject", { required: true })} />
 
-              <textarea placeholder='Your Message' type="number" style={{ width: '95%', marginTop: 10, marginLeft: 10, padding: '50px 10px', border: '1px solid #333' }} {...register("lessons", { required: true })} />
+              <textarea placeholder='Your Message' type="number" style={{ width: '95%', marginTop: 10, marginLeft: 10, padding: '50px 10px', border: '1px solid #333' }} {...register("message", { required: true })} />
 
               <Button type="submit" variant="contained" sx={{ mt: 2 }}>Send Your Massage</Button>
             </form>

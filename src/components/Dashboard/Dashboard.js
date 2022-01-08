@@ -37,6 +37,7 @@ import AdminRoute from '../AdminRoute/AdminRoute';
 import AddCourses from './AddCourses/AddCourses';
 import manageCourses from './ManageCourses/ManageCourses';
 import Messages from './Messages/Messages';
+import ManageCourses from './ManageCourses/ManageCourses';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -268,15 +269,15 @@ const Dashboard = () => {
                     </Route>
                     <Route path={`${path}/payment/:Id`}>
                         <Payment />
-                    </Route>
+                    </Route>  */}
                     <Route path={`${path}/give-review`}>
                         <GiveReview />
-                    </Route> */}
+                    </Route>
                     <AdminRoute path={`${path}/add-courses`}>
                         <AddCourses />
                     </AdminRoute>
                     <AdminRoute path={`${path}/manage-courses`}>
-                        <manageCourses />
+                        <ManageCourses />
                     </AdminRoute>
                     <AdminRoute path={`${path}/messages`}>
                         <Messages />
