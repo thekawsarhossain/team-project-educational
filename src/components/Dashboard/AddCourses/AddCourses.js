@@ -20,9 +20,7 @@ const AddCourses = () => {
             .then(response => response.json())
             .then(result => {
                 if (result.insertedId) {
-                    <Alert>
-                        Successfull !
-                    </Alert>
+                    alert('course added');
                 }
             })
         reset();

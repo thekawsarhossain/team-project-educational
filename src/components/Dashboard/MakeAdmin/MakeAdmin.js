@@ -19,7 +19,7 @@ const MakeAdmin = () => {
             .then(response => response.json())
             .then(data => {
                 if (data.acknowledged) {
-                    console.log('done')
+                    alert('admin maked');
                 }
             })
     }

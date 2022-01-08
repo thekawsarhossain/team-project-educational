@@ -21,7 +21,7 @@ const Contact = () => {
       .then(response => response.json())
       .then(result => {
         if (result.insertedId) {
-          console.log('done')
+          alert('message send')
         }
       })
     reset();

@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
+import { Box, Button, CircularProgress, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchOrders } from '../../../Redux/slices/ordersSlice';
 
@@ -14,13 +14,31 @@ import { fetchOrders } from '../../../Redux/slices/ordersSlice';
 
 const Cart = () => {
 
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchOrders())
     }, [dispatch])
 
-    const orders = useSelector(state => state.courses.courses)
-    console.log(orders)
+    const orders = useSelector(state => state.orders.orders)
+    const loading = useSelector(state => state.courses.status)
+
+    const handleDelete = id => {
+        const proceed = window.confirm('Are you sure you want DELETE');
+        if (proceed) {
+            fetch(`https://lit-lake-52047.herokuapp.com/order/${id}`, {
+                method: 'DELETE',
+                haeders: { 'content-type': 'application/json' }
+            })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.deletedCount) {
+                        alert('delete done');
+                        dispatch(fetchOrders())
+                    }
+                })
+        }
+    }
 
     return (
         <>
@@ -29,24 +47,29 @@ const Cart = () => {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow sx={{ bgcolor: 'text.secondary' }}>
-                            <TableCell>Image</TableCell>
-                            <TableCell>Course Name</TableCell>
-                            <TableCell>Duration</TableCell>
-                            <TableCell>price</TableCell>
+                            <TableCell>Buyer Name</TableCell>
+                            <TableCell>Address</TableCell>
+                            <TableCell>Number</TableCell>
+                            <TableCell>Email</TableCell>
+                            <TableCell>Total</TableCell>
+                            <TableCell>Status</TableCell>
                             <TableCell>actions</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {
-                            orders.map(order => <TableRow>
-                                <TableCell style={{ width: '25%' }} align="left"> <img style={{ width: '50%' }} src={order?.img} alt="courseImg" /> </TableCell>
-                                <TableCell align="left">{order?.courseName}</TableCell>
-                                <TableCell align="left">{order?.duration}</TableCell>
-                                <TableCell align="left">${order?.newPrice}</TableCell>
-                                <TableCell align="left">
-                                    {/* <Button onClick={() => dispatch(removeToCart(order._id))}>Remove</Button> */}
-                                </TableCell>
-                            </TableRow>)
+                            loading === 'pending' ? <Box style={{ width: '100%', height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><CircularProgress /></Box> :
+                                orders?.map(order => <TableRow>
+                                    <TableCell align="left">{order?.name}</TableCell>
+                                    <TableCell align="left">{order?.address}</TableCell>
+                                    <TableCell align="left">{order?.number}</TableCell>
+                                    <TableCell align="left">{order?.email}</TableCell>
+                                    <TableCell align="left">${order?.price}</TableCell>
+                                    <TableCell align="left">${order?.status}</TableCell>
+                                    <TableCell align="left">
+                                        <Button onClick={() => handleDelete(order._id)}>Remove</Button>
+                                    </TableCell>
+                                </TableRow>)
                         }
                     </TableBody>
                 </Table>

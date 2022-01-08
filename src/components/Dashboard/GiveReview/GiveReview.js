@@ -34,7 +34,7 @@ const GiveReview = () => {
             .then(result => {
                 if (result.insertedId) {
                     setLoading(false);
-                    console.log('done')
+                    alert('review added');
                 }
             })
     }

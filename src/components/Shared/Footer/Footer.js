@@ -1,10 +1,12 @@
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import React from "react";
 import "./Footer.css";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 const Footer = () => {
+
+  const history = useHistory();
   return (
     <div>
       <footer>
@@ -16,9 +18,9 @@ const Footer = () => {
                   <img src="https://www.devsnews.com/wp/educal/wp-content/themes/educal/assets/img/logo/logo.png" alt="" />
                   <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
                   <div className="footer-icon ">
-                    <a target='_blank' href="https://www.facebook.com">      <i className="fab fa-facebook-f"></i></a>
+                    <a target='_blank' href="https://www.facebook.com"><i className="fab fa-facebook-f"></i></a>
                     <a target='_parent' href="https://www.youtube.com/"><i className="fab fa-youtube"></i></a>
-                    <a target='_blank' href="https://twitter.com/home"> <i className="fab fa-twitter"></i></a>
+                    <a target='_blank' href="https://twitter.com/home"><i className="fab fa-twitter"></i></a>
 
                     <a target='_blank' href="https://www.pinterest.com/"><i className="fab fa-pinterest-p"></i></a>
 
@@ -28,21 +30,12 @@ const Footer = () => {
               <Grid item xs={12} md={4}>
                 <div className="footer-item-2">
                   <h2>Company</h2>
-                  <ul>
-                    <Link to='/about'>
-                      <li>About</li>
-                    </Link>
-                    <Link to='/courses'>
-                      <li>Courses</li>
-                    </Link>
-                    <Link to='/blogs'>
-                      <li>Events</li>
-                    </Link>
-                    <Link to='/contact'>
-                      <li>Contact</li>
-                    </Link>
+                  <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                    <Button onClick={() => history.push('/about')}>About</Button>
+                    <Button onClick={() => history.push('/courses')}>Courses</Button>
+                    <Button onClick={() => history.push('/contact')}>Contact</Button>
 
-                  </ul>
+                  </Box>
                 </div>
               </Grid>
               <Grid item xs={12} md={4}>

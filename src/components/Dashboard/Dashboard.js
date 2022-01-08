@@ -30,15 +30,13 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import EmailIcon from '@mui/icons-material/Email';
 import Payment from './Payment/Payment';
 import GiveReview from './GiveReview/GiveReview';
-import AddProducts from './AddProducts/AddProducts';
-import ManageOrders from './ManageOrders/ManageOrders';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import AddCourses from './AddCourses/AddCourses';
-import manageCourses from './ManageCourses/ManageCourses';
 import Messages from './Messages/Messages';
 import ManageCourses from './ManageCourses/ManageCourses';
 import Cart from './Cart/Cart';
+import ManageOrders from './ManageOrders/ManageOrders';
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -274,10 +272,10 @@ const Dashboard = () => {
                     </AdminRoute>
                     <AdminRoute path={`${path}/messages`}>
                         <Messages />
-                    </AdminRoute>  {/* 
+                    </AdminRoute>
                     <AdminRoute path={`${path}/manage-orders`}>
                         <ManageOrders />
-                    </AdminRoute> */}
+                    </AdminRoute>
                     <AdminRoute path={`${path}/make-admin`}>
                         <MakeAdmin />
                     </AdminRoute>

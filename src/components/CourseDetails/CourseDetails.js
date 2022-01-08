@@ -48,7 +48,9 @@ const CourseDetails = () => {
   const onSubmit = data => {
     data.date = new Date().toLocaleDateString();
     data.email = user.email;
-    fetch('http://localhost:8000/orders', {
+    data.price = courseDetails.newPrice;
+    data.status = 'pending'
+    fetch('https://lit-lake-52047.herokuapp.com/orders', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -58,7 +60,8 @@ const CourseDetails = () => {
       .then(response => response.json())
       .then(data => {
         if (data.insertedId) {
-          console.log('done')
+          alert('order added');
+          history.push('/dashboard/cart')
         }
       })
   }

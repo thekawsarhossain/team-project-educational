@@ -4,68 +4,59 @@ import BookmarkAddIcon from '@mui/icons-material/BookmarkAdd';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import { Button } from '@mui/material';
-import swal from 'sweetalert';
+import { useDispatch } from 'react-redux';
+import { fetchOrders } from '../../../../Redux/slices/ordersSlice';
 
 const ManageOrder = ({ orders }) => {
 
-    const { productName, name, address, number, status, date, _id, payment } = orders;
+    const dispatch = useDispatch();
+    const { name, email, address, number, status, date, _id, price } = orders;
 
     // handle delete here 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure you want DELETE');
         if (proceed) {
-            fetch(`https://safe-tundra-13022.herokuapp.com/order/${id}`, {
+            fetch(`https://lit-lake-52047.herokuapp.com/order/${id}`, {
                 method: 'DELETE',
                 haeders: { 'content-type': 'application/json' }
             })
                 .then(response => response.json())
                 .then(result => {
                     if (result.deletedCount) {
-                        swal({
-                            title: 'Order Deleted!',
-                            icon: 'success',
-                            confirmButtonText: 'Ok'
-                        })
+                        alert('deleted');
+                        dispatch(fetchOrders())
                     }
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1200);
                 })
         }
     }
 
     // handle status here 
     const handleStatus = id => {
-        fetch(`https://safe-tundra-13022.herokuapp.com/order/${id}`, {
+        fetch(`https://lit-lake-52047.herokuapp.com/order/${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' }
         })
             .then(response => response.json())
             .then(result => {
                 if (result.modifiedCount) {
-                    swal({
-                        title: 'Order Updated!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
+                    alert('status updated')
+                    dispatch(fetchOrders())
                 }
-                setTimeout(() => {
-                    window.location.reload();
-                }, 1200);
             })
     }
 
     return (
         <>
             <TableRow>
-                <TableCell align="left">{productName}</TableCell>
                 <TableCell align="left">{name}</TableCell>
                 <TableCell align="left">{address}</TableCell>
                 <TableCell align="left">{number}</TableCell>
-                <TableCell align="left">{status}</TableCell>
-                <TableCell align="left">{payment ? payment : 'unpaid'}</TableCell>
+                <TableCell align="left">{email}</TableCell>
                 <TableCell align="left">{date}</TableCell>
-                <TableCell align="center"> <Button onClick={() => handleDelete(_id)} sx={{ color: 'error.main', bgcolor: 'text.primary', mx: 1 }} ><DeleteIcon /> </Button>
+                <TableCell align="left">{status}</TableCell>
+                <TableCell align="left">{price}</TableCell>
+                <TableCell align="center">
+                    <Button onClick={() => handleDelete(_id)} sx={{ color: 'error.main', bgcolor: 'text.primary', mx: 1 }} ><DeleteIcon /> </Button>
                     {status === 'shipped' ? '' : <Button onClick={() => handleStatus(_id)} sx={{ color: 'error.main', bgcolor: 'text.primary' }} ><BookmarkAddIcon /> </Button>}
                 </TableCell>
             </TableRow >
