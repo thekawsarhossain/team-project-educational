@@ -1,44 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-## Available Scripts
+# Educal 
+This project is MERN stack project most emphasis on education.This is an Team project.
 
-In the project directory, you can run:
+##Team Members
+1. (https://github.com/RHsanto) Rakibul Hasan Shanto
+2. (http://github.com/thekawsarhossain) Kawsar Hossain
 
-### `npm start`
+## Features
+- In this project we implement firebase authentication system
+- Users can enroll courses in this application.
+- The users can also check their orders, they can cancel the order as well.
+- The users xcan give the review and the review will display in the reviews route in this project.
+- we use redux for the state management in this project.
+- we make the admin dashboard so that the admin can add new courses, they will also be able to make another user admin 
+- the user can't visit the admin panel .
+- we use mangoDB for curd operations.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### technology used
+ReactJs, NodeJs, MongoDB, Express, Material-UI, Redux, SwiperJs, React rating, React hook form etc.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Live Site 
+(https://team-education-site.netlify.app/)
